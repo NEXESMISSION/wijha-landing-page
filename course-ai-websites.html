@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية وجهة: دورة بناء المواقع بالذكاء الاصطناعي</title>
+    <!-- تحميل Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* استخدام خط Noto Sans Arabic للغة العربية */
+        body {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            background-color: #f7f9fb; /* خلفية فاتحة للراحة */
+        }
+        /* تأثير الظل الجذاب على البطاقات */
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(22, 22, 22, 0.05);
+        }
+
+        /* تعريف حركة العوم والدوران المدمجة (Float and Wiggle) */
+        @keyframes float-and-wiggle {
+            /* تستخدم هذه النقاط متغيرات CSS لإنشاء مسارات عشوائية مختلفة لكل أيقونة */
+            0% { 
+                transform: translate(var(--float-x-start, 0px), var(--float-y-start, 0px)) rotate(var(--rotate-start, -5deg)); 
+            }
+            50% { 
+                transform: translate(var(--float-x-mid, 20px), var(--float-y-mid, -20px)) rotate(var(--rotate-mid, 5deg)); 
+            }
+            100% { 
+                transform: translate(var(--float-x-end, 0px), var(--float-y-end, 0px)) rotate(var(--rotate-end, -5deg)); 
+            }
+        }
+
+        /* تطبيق حركة العوم والدوران على الإيموجي */
+        .wiggling-emoji {
+            /* تطبيق الحركة العشوائية المدمجة. المدة يتم تحديدها بشكل عشوائي في JS */
+            animation: float-and-wiggle var(--float-duration, 15s) infinite ease-in-out alternate; 
+            opacity: 0.1; /* الحفاظ على الشفافية المنخفضة */
+            position: absolute;
+            pointer-events: none; /* لمنع التفاعل معها بالماوس */
+            z-index: 0; /* لجعلها في الخلفية */
+            color: #ccc; /* لون خفيف جداً */
+            /* أحجام عشوائية */
+            --random-size: calc(2rem + var(--emoji-scale) * 1rem); /* 2rem to 5rem */
+            font-size: var(--random-size);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-orange': '#F48434',
+                        'primary-purple': '#7C34D9',
+                        'primary-hover': '#e0742f', /* لون أغمق قليلاً للبرتقالي */
+                        'secondary-gray': '#e5e7eb',
+                        'accent-light': '#fdf2e8', /* لون فاتح يتماشى مع البرتقالي */
+                        'dark-text': '#1f2937', /* نص داكن لتناسق أفضل */
+                    }
+                }
+            }
+        }
+
+        // دالة لعرض رسالة تأكيد (بديل لـ alert)
+        function showEnrollmentMessage() {
+            const messageBox = document.getElementById('enrollment-message');
+            messageBox.classList.remove('hidden');
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 4000);
+        }
+
+        // توزيع أحجام وعناصر عشوائية عند التحميل
+        document.addEventListener('DOMContentLoaded', () => {
+            const emojis = document.querySelectorAll('.wiggling-emoji');
+            emojis.forEach(emoji => {
+                // 1. Random Size
+                emoji.style.setProperty('--emoji-scale', Math.random() * 3); 
+
+                // 2. Random Float Movement Configuration
+                const floatRange = 50; // مدى الحركة الأقصى بالبكسل (50px)
+                const duration = Math.floor(Math.random() * 10) + 15; // مدة الحركة بين 15s و 24s
+                const delay = Math.random() * 5; // تأخير البدء بين 0s و 5s
+
+                // نقاط مسار عشوائية
+                const xStart = (Math.random() * floatRange * 2) - floatRange; // -50 to 50
+                const yStart = (Math.random() * floatRange * 2) - floatRange; 
+                const xMid = (Math.random() * floatRange * 2) - floatRange; 
+                const yMid = (Math.random() * floatRange * 2) - floatRange; 
+                const xEnd = (Math.random() * floatRange * 2) - floatRange; 
+                const yEnd = (Math.random() * floatRange * 2) - floatRange; 
+
+                // تعيين متغيرات CSS
+                emoji.style.setProperty('--float-duration', `${duration}s`);
+                emoji.style.setProperty('--float-x-start', `${xStart}px`);
+                emoji.style.setProperty('--float-y-start', `${yStart}px`);
+                emoji.style.setProperty('--float-x-mid', `${xMid}px`);
+                emoji.style.setProperty('--float-y-mid', `${yMid}px`);
+                emoji.style.setProperty('--float-x-end', `${xEnd}px`);
+                emoji.style.setProperty('--float-y-end', `${yEnd}px`);
+                emoji.style.setProperty('animation-delay', `${delay}s`); // تأخير لكل أيقونة
+            });
+        });
+    </script>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- رسالة التأكيد (بديل لـ alert) --><div id="enrollment-message" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 p-4 bg-green-500 text-white rounded-lg shadow-xl hidden transition-opacity duration-300">
+        شكراً لتسجيلك! سيتم توجيهك الآن إلى صفحة الدفع لإتمام عملية الشراء.
+    </div>
+
+    <!-- الشريط العلوي (NavBar) -->
+    <header class="bg-white shadow-sm relative overflow-hidden h-20 lg:h-24">
+        <!-- الإيموجي المتحركة في الخلفية --><span class="wiggling-emoji top-1/4 left-[10%]">🚀</span>
+        <span class="wiggling-emoji bottom-1/4 right-[5%]">💡</span>
+        <span class="wiggling-emoji top-1/2 left-[40%]">💻</span>
+        <span class="wiggling-emoji top-1/3 right-[30%]">⚡️</span>
+        <span class="wiggling-emoji bottom-[10%] left-[20%]">✅</span>
+        <span class="wiggling-emoji top-[5%] right-[20%]">⭐</span>
+        <span class="wiggling-emoji bottom-[5%] left-[50%]">🔥</span>
+        <span class="wiggling-emoji top-[60%] right-[10%]">📈</span>
+
+
+        <!-- الحاوية الداخلية الآن تعمل كنطاق للتوسيط المطلق --><div class="container mx-auto px-4 h-full max-w-7xl relative z-10"> 
+            
+            <!-- الشعار الجديد كصورة -->
+            <a href="#" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="Wijha (وجهة) Academy Logo" class="h-16 lg:h-20 w-auto">
+            </a>
+            
+            <!-- تم حذف زر CTA من الشريط العلوي --></div>
+    </header>
+
+    <!-- قسم البطل (Hero Section) - تم تحديثه --><main class="pt-16 pb-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="lg:flex lg:items-center lg:space-x-12 lg:space-x-reverse">
+                <!-- النص والمحتوى --><div class="lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-right">
+                    <p class="text-sm lg:text-lg font-semibold text-primary-orange mb-3 lg:mb-6">🔥 تحدي "من الصفر إلى موقع حي" في 90 دقيقة!</p>
+                    <!-- العنوان الرئيسي بحجم مناسب للهاتف والديسكتوب --><h1 class="text-2xl lg:text-6xl font-extrabold text-dark-text leading-tight mb-6 lg:mb-10">
+                        بناء موقع احترافي <span class="text-primary-purple">بالذكاء الاصطناعي</span> – بدون أي كود.
+                    </h1>
+                    <p class="text-base lg:text-xl text-gray-600 mb-8 lg:mb-12">
+                        أتقن المنهجية التي يستخدمها المستقلون لإطلاق مواقع عالية الجودة (مع نماذج اتصال ودفع) في فترة ما بعد الظهيرة، بميزانية تناسب رواد الأعمال.
+                    </p>
+
+                    <!-- شارة السعر المحدثة --><div class="bg-primary-purple text-white text-2xl md:text-3xl font-extrabold py-3 px-6 rounded-t-lg rounded-r-lg inline-block shadow-lg mb-4 transform -rotate-1 translate-y-2 mx-auto lg:mx-0">
+                        السعر: 120 د.ت فقط!
+                    </div>
+
+                    <!-- CTA الرئيسي --><button onclick="showEnrollmentMessage()" class="w-full md:w-[80%] lg:w-auto px-10 py-4 text-base md:text-xl font-bold text-white bg-primary-orange rounded-xl hover:bg-primary-hover transition duration-300 shadow-xl shadow-primary-orange/30 transform hover:scale-[1.02] active:scale-[0.98] mx-auto lg:mx-0">
+                        ✅ احجز مكانك وابدأ الإطلاق بـ 120 د.ت
+                    </button>
+                    
+                    <!-- الدليل الاجتماعي أسفل CTA --><div class="flex items-center space-x-4 space-x-reverse mt-6 justify-center lg:justify-end">
+                        <div class="flex -space-x-2 overflow-hidden">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://placehold.co/32x32/fca5a5/111?text=A" alt="Avatar">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://placehold.co/32x32/a5b4fc/111?text=B" alt="Avatar">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://placehold.co/32x32/d8b4fe/111?text=C" alt="Avatar">
+                        </div>
+                        <p class="text-xs md:text-sm font-medium text-gray-500">
+                            +1200 رائد أعمال اختاروا طريق الإنجاز السريع.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- الصورة/التمثيل البصري --><div class="lg:w-1/2 relative">
+                    <img class="w-full h-auto rounded-xl card-shadow transform rotate-2 transition-transform duration-500 hover:rotate-1"
+                        src="https://placehold.co/800x550/7C34D9/ffffff?text=AI+Code+Generation+in+90+Minutes"
+                        alt="واجهة بناء المواقع بالذكاء الاصطناعي">
+                    <!-- إضافة شارة للوقت --><div class="absolute top-0 left-0 bg-primary-orange text-white px-4 py-2 rounded-lg font-extrabold shadow-xl transform -translate-x-4 -translate-y-4 text-sm md:text-base">
+                        النتيجة في 90 دقيقة
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- قسم الميزات (Course Breakdown) --><section class="py-24 bg-accent-light">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <!-- العنوان الرئيسي للقسم بحجم مناسب للهاتف والديسكتوب --><h2 class="text-xl lg:text-4xl font-extrabold text-center mb-6 text-dark-text">ما ستتقنه في هذه الدورة المصغرة</h2>
+            <p class="text-base lg:text-xl text-center text-gray-700 mb-16 max-w-3xl mx-auto">
+                انسَ الأكواد المعقدة. هذه الدورة العملية تركّز على الحصول على **نتائج احترافية في أقل من 90 دقيقة** باستخدام الذكاء الاصطناعي.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- ميزة 1: هندسة الأوامر وبناء الهيكل --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
+                    <div class="text-4xl text-primary-purple mb-4">✍️</div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">هندسة الأوامر وبناء الهيكل (AI Prompt Engineering)</h3>
+                    <p class="text-sm text-gray-700">تعلّم فن صياغة الأوامر الفعّالة للذكاء الاصطناعي (Gemini) لإنشاء هيكل موقع كامل ومتماسك في دقائق، من الرأس إلى التذييل.</p>
+                </div>
+
+                <!-- ميزة 2: إتقان تصميم Tailwind والتجاوب --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
+                    <div class="text-4xl text-primary-orange mb-4">📐</div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">إتقان تصميم Tailwind والتجاوب (Responsive Design)</h3>
+                    <p class="text-sm text-gray-700">كيف تضمن أن الكود المُنشأ بالذكاء الاصطناعي يتبع أفضل ممارسات Tailwind CSS ويكون متجاوبًا 100% ويعمل بامتياز على جميع الأجهزة.</p>
+                </div>
+                
+                <!-- ميزة 3: النشر المباشر على الإنترنت --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
+                    <div class="text-4xl text-primary-purple mb-4">🚀</div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">النشر المباشر على الإنترنت (Vercel & Domain Setup)</h3>
+                    <p class="text-sm text-gray-700">خطوات سريعة لنشر موقعك الحي فوراً على منصة Vercel وربطه بنطاقك الخاص (Custom Domain) دون تعقيدات الخوادم.</p>
+
+                </div>
+
+                <!-- ميزة 4: تضمين نماذج الاتصال وجمع البيانات --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
+                    <div class="text-4xl text-primary-orange mb-4">📧</div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">تضمين نماذج الاتصال وجمع البيانات (Forms Integration)</h3>
+                    <p class="text-sm text-gray-700">إضافة نماذج اتصال فعّالة (Contact Forms) وربطها بخدمات تخزين البيانات مثل Google Sheets لتنظيم استفسارات العملاء تلقائيًا.</p>
+                </div>
+
+                <!-- ميزة 5: تفعيل بوابات الدفع الفوري --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
+                    <div class="text-4xl text-primary-purple mb-4">💳</div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">تفعيل بوابات الدفع الفوري (Payment Gateways)</h3>
+                    <p class="text-sm text-gray-700">دمج أزرار الدفع المباشر والآمنة (مثل Stripe أو PayPal) في صفحاتك، لتمكين العملاء من الشراء الفوري لمنتجاتك أو خدماتك.</p>
+                </div>
+                
+                <!-- ميزة 6: منهجية المستقل السريع --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
+                    <div class="text-4xl text-primary-orange mb-4">💰</div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">منهجية المستقل السريع (The Fast Freelancer Method)</h3>
+                    <p class="text-sm text-gray-700">المنهجية الموثّقة خطوة بخطوة لتحويل متطلبات العميل إلى موقع جاهز ومربح في نفس يوم العمل، مما يزيد من هامش ربحك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم لمن هذه الدورة (Audience) --><section class="py-24">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <!-- العنوان الرئيسي للقسم بحجم مناسب للهاتف والديسكتوب --><h2 class="text-xl lg:text-4xl font-extrabold text-center mb-16 text-dark-text">هل هذه الدورة مناسبة لك؟ الإجابة نعم!</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <!-- الجمهور 1: أصحاب الأعمال --><div class="p-8 bg-white border-2 border-primary-orange rounded-xl card-shadow text-center">
+                    <div class="text-6xl mb-4 text-primary-orange">💼</div>
+                    <h3 class="text-lg lg:text-2xl font-bold mb-3 text-dark-text">صاحب العمل الصغير</h3>
+                    <p class="text-sm text-gray-700">توقف عن الدفع للمستقلين المكلفين. قم ببناء وإدارة تواجدك الاحترافي الخاص على الإنترنت بسرعة وبتكلفة معقولة جداً.</p>
+                </div>
+
+                <!-- الجمهور 2: المستقل الطموح --><div class="p-8 bg-white border border-secondary-gray rounded-xl card-shadow text-center">
+                    <div class="text-6xl mb-4 text-primary-purple">🛠️</div>
+                    <h3 class="text-lg lg:text-2xl font-bold mb-3 text-dark-text">وكالة الويب / المستقل الطموح</h3>
+                    <p class="text-sm text-gray-700">أضف خدمة مطلوبة وعالية السرعة وقليلة الجهد إلى محفظتك يمكنك البدء في بيعها هذا الأسبوع.</p>
+                </div>
+
+                <!-- الجمهور 3: المربي / الوالد --><div class="p-8 bg-white border border-secondary-gray rounded-xl card-shadow text-center">
+                    <div class="text-6xl mb-4 text-primary-orange">👨‍🏫</div>
+                    <h3 class="text-lg lg:text-2xl font-bold mb-3 text-dark-text">المربي أو الباحث عن مهارة جديدة</h3>
+                    <p class="text-sm text-gray-700">تعلّم مهارة عصرية ومستقبلية واستخدم الذكاء الاصطناعي لفتح آفاق مهنية جديدة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم CTA النهائي (Final Push) --><section id="cta-section" class="py-24 bg-primary-purple">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <!-- العنوان الرئيسي للقسم بحجم مناسب للهاتف والديسكتوب --><h2 class="text-2xl md:text-5xl font-extrabold text-white mb-6">توقف عن الحلم. ابدأ الإطلاق.</h2>
+            <!-- [تعديل] تم تغيير لون النص هنا إلى الأبيض -->
+            <p class="text-base md:text-xl text-white bg-white/10 p-4 inline-block rounded-lg mb-10">
+                لماذا تنتظر؟ استثمر 120 د.ت لتتعلم مهارة تبني بها مستقبلك المهني.
+            </p>
+
+            <button onclick="showEnrollmentMessage()" class="w-full md:w-auto px-12 py-5 text-lg md:text-2xl font-bold text-white bg-primary-orange rounded-xl hover:bg-primary-hover transition duration-300 shadow-2xl shadow-primary-orange/50 transform hover:scale-105 active:scale-95">
+                ✅ أكمل التسجيل وابدأ الآن بـ 120 د.ت
+            </button>
+        </div>
+    </section>
+
+    <!-- التذييل (Footer) --><footer class="py-10 bg-dark-text text-white">
+        <div class="container mx-auto px-4 max-w-7xl text-center text-sm text-gray-400">
+            <p>&copy; 2025 Wijha (وجهة) Academy. جميع الحقوق محفوظة.</p>
+            <p class="mt-2">مصمم خصيصاً لمساعدة رواد الأعمال والمستقلين على النجاح.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
