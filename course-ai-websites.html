@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أكاديمية وجهة: دورة بناء المواقع بالذكاء الاصطناعي</title>
-    <!-- تحميل Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <title>دورة بناء المواقع بالذكاء الاصطناعي - أكاديمية وجهة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* استخدام خط Noto Sans Arabic للغة العربية */
         body {
@@ -70,6 +72,18 @@
             }, 4000);
         }
 
+        // قائمة الموبايل
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+
         // توزيع أحجام وعناصر عشوائية عند التحميل
         document.addEventListener('DOMContentLoaded', () => {
             const emojis = document.querySelectorAll('.wiggling-emoji');
@@ -110,165 +124,232 @@
     </div>
 
     <!-- الشريط العلوي (NavBar) -->
-    <header class="bg-white shadow-sm relative overflow-hidden h-20 lg:h-24">
-        <!-- الإيموجي المتحركة في الخلفية --><span class="wiggling-emoji top-1/4 left-[10%]">🚀</span>
-        <span class="wiggling-emoji bottom-1/4 right-[5%]">💡</span>
-        <span class="wiggling-emoji top-1/2 left-[40%]">💻</span>
-        <span class="wiggling-emoji top-1/3 right-[30%]">⚡️</span>
-        <span class="wiggling-emoji bottom-[10%] left-[20%]">✅</span>
-        <span class="wiggling-emoji top-[5%] right-[20%]">⭐</span>
-        <span class="wiggling-emoji bottom-[5%] left-[50%]">🔥</span>
-        <span class="wiggling-emoji top-[60%] right-[10%]">📈</span>
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- الشعار -->
+                <a href="index.html" class="flex items-center hover:opacity-80 transition">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="أكاديمية وجهة" class="h-12 lg:h-16 w-auto">
+                </a>
+                
+                <!-- القائمة -->
+                <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-orange font-semibold transition text-sm lg:text-base">الرئيسية</a>
+                    <a href="courses.html" class="text-gray-700 hover:text-primary-orange font-semibold transition text-sm lg:text-base">جميع الدورات</a>
+                    <a href="#cta-section" class="px-4 lg:px-6 py-2 lg:py-3 bg-primary-orange text-white rounded-lg hover:bg-primary-hover font-bold transition text-sm lg:text-base">
+                        سجّل الآن
+                    </a>
+                </nav>
 
+                <!-- قائمة الموبايل -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-700 hover:text-primary-orange">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
 
-        <!-- الحاوية الداخلية الآن تعمل كنطاق للتوسيط المطلق --><div class="container mx-auto px-4 h-full max-w-7xl relative z-10"> 
-            
-            <!-- الشعار الجديد كصورة -->
-            <a href="#" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="Wijha (وجهة) Academy Logo" class="h-16 lg:h-20 w-auto">
-            </a>
-            
-            <!-- تم حذف زر CTA من الشريط العلوي --></div>
+            <!-- قائمة الموبايل المنسدلة -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-3">
+                <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">الرئيسية</a>
+                <a href="courses.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">جميع الدورات</a>
+                <a href="#cta-section" class="block px-4 py-2 bg-primary-orange text-white rounded-lg hover:bg-primary-hover transition font-bold text-center">سجّل الآن</a>
+            </div>
+        </div>
     </header>
 
-    <!-- قسم البطل (Hero Section) - تم تحديثه --><main class="pt-16 pb-24 bg-white relative overflow-hidden">
+    <!-- قسم البطل (Hero Section) -->
+    <main class="pt-8 lg:pt-16 pb-12 lg:pb-24 bg-gradient-to-b from-white to-accent-light">
         <div class="container mx-auto px-4 max-w-7xl">
-            <div class="lg:flex lg:items-center lg:space-x-12 lg:space-x-reverse">
-                <!-- النص والمحتوى --><div class="lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-right">
-                    <p class="text-sm lg:text-lg font-semibold text-primary-orange mb-3 lg:mb-6">🔥 تحدي "من الصفر إلى موقع حي" في 90 دقيقة!</p>
-                    <!-- العنوان الرئيسي بحجم مناسب للهاتف والديسكتوب --><h1 class="text-2xl lg:text-6xl font-extrabold text-dark-text leading-tight mb-6 lg:mb-10">
-                        بناء موقع احترافي <span class="text-primary-purple">بالذكاء الاصطناعي</span> – بدون أي كود.
+            <div class="lg:flex lg:items-center lg:gap-12 lg:flex-row-reverse">
+                <!-- النص والمحتوى -->
+                <div class="lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-right">
+                    <p class="text-sm md:text-base lg:text-lg font-bold text-primary-orange mb-4 lg:mb-6">
+                        🔥 تحدي "من الصفر إلى موقع حي" في 90 دقيقة!
+                    </p>
+                    
+                    <h1 class="text-[2.25rem] md:text-[2.5rem] lg:text-[3rem] xl:text-[4rem] font-extrabold text-dark-text leading-tight mb-4 lg:mb-6">
+                        ابنِ موقع احترافي <span class="text-primary-purple">بالذكاء الاصطناعي</span> – بدون أي كود
                     </h1>
-                    <p class="text-base lg:text-xl text-gray-600 mb-8 lg:mb-12">
-                        أتقن المنهجية التي يستخدمها المستقلون لإطلاق مواقع عالية الجودة (مع نماذج اتصال ودفع) في فترة ما بعد الظهيرة، بميزانية تناسب رواد الأعمال.
+                    
+                    <p class="text-base md:text-lg lg:text-xl text-gray-700 mb-6 lg:mb-8 leading-relaxed">
+                        تعلَّم المنهجية العملية لإطلاق مواقع احترافية (مع نماذج اتصال ودفع) في أقل من 90 دقيقة باستخدام الذكاء الاصطناعي
                     </p>
 
-                    <!-- شارة السعر المحدثة --><div class="bg-primary-purple text-white text-2xl md:text-3xl font-extrabold py-3 px-6 rounded-t-lg rounded-r-lg inline-block shadow-lg mb-4 transform -rotate-1 translate-y-2 mx-auto lg:mx-0">
-                        السعر: 120 د.ت فقط!
+                    <!-- شارة السعر -->
+                    <div class="bg-primary-purple text-white text-xl md:text-2xl lg:text-3xl font-extrabold py-3 px-6 lg:px-8 rounded-lg inline-block shadow-xl mb-6">
+                        💰 السعر: 120 د.ت فقط!
                     </div>
 
-                    <!-- CTA الرئيسي --><button onclick="showEnrollmentMessage()" class="w-full md:w-[80%] lg:w-auto px-10 py-4 text-base md:text-xl font-bold text-white bg-primary-orange rounded-xl hover:bg-primary-hover transition duration-300 shadow-xl shadow-primary-orange/30 transform hover:scale-[1.02] active:scale-[0.98] mx-auto lg:mx-0">
-                        ✅ احجز مكانك وابدأ الإطلاق بـ 120 د.ت
+                    <!-- CTA الرئيسي -->
+                    <button onclick="showEnrollmentMessage()" class="px-8 py-3 text-base font-bold text-white bg-primary-orange rounded-lg hover:bg-primary-hover transition shadow-lg hover:shadow-xl inline-block">
+                        ✅ سجّل الآن وابدأ التعلم
                     </button>
                     
-                    <!-- الدليل الاجتماعي أسفل CTA --><div class="flex items-center space-x-4 space-x-reverse mt-6 justify-center lg:justify-end">
-                        <div class="flex -space-x-2 overflow-hidden">
-                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://placehold.co/32x32/fca5a5/111?text=A" alt="Avatar">
-                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://placehold.co/32x32/a5b4fc/111?text=B" alt="Avatar">
-                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://placehold.co/32x32/d8b4fe/111?text=C" alt="Avatar">
+                    <!-- الدليل الاجتماعي -->
+                    <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-6 lg:mt-8 justify-center lg:justify-start">
+                        <div class="flex -space-x-2">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://placehold.co/40x40/fca5a5/111?text=A" alt="طالب">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://placehold.co/40x40/a5b4fc/111?text=B" alt="طالب">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://placehold.co/40x40/d8b4fe/111?text=C" alt="طالب">
                         </div>
-                        <p class="text-xs md:text-sm font-medium text-gray-500">
-                            +1200 رائد أعمال اختاروا طريق الإنجاز السريع.
+                        <p class="text-sm md:text-base font-semibold text-gray-600">
+                            ✨ انضم لـ +1200 متعلم نجحوا معنا
                         </p>
                     </div>
-
                 </div>
 
-                <!-- الصورة/التمثيل البصري --><div class="lg:w-1/2 relative">
-                    <img class="w-full h-auto rounded-xl card-shadow transform rotate-2 transition-transform duration-500 hover:rotate-1"
-                        src="https://placehold.co/800x550/7C34D9/ffffff?text=AI+Code+Generation+in+90+Minutes"
+                <!-- الصورة/التمثيل البصري -->
+                <div class="lg:w-1/2 relative mb-8 lg:mb-0">
+                    <img class="w-full h-auto rounded-2xl shadow-2xl"
+                        src="https://i.ibb.co/ZpYZkMpp/Gemini-Generated-Image-gcq7fkgcq7fkgcq7-1.png"
                         alt="واجهة بناء المواقع بالذكاء الاصطناعي">
-                    <!-- إضافة شارة للوقت --><div class="absolute top-0 left-0 bg-primary-orange text-white px-4 py-2 rounded-lg font-extrabold shadow-xl transform -translate-x-4 -translate-y-4 text-sm md:text-base">
-                        النتيجة في 90 دقيقة
+                    <div class="absolute -top-4 -right-4 bg-primary-orange text-white px-4 py-2 rounded-xl font-bold shadow-xl text-sm md:text-base">
+                        ⚡ نتيجة في 90 دقيقة
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    
-    <!-- قسم الميزات (Course Breakdown) --><section class="py-24 bg-accent-light">
+
+    <!-- قسم الميزات (Course Breakdown) -->
+    <section class="py-12 lg:py-20 bg-white">
         <div class="container mx-auto px-4 max-w-7xl">
-            <!-- العنوان الرئيسي للقسم بحجم مناسب للهاتف والديسكتوب --><h2 class="text-xl lg:text-4xl font-extrabold text-center mb-6 text-dark-text">ما ستتقنه في هذه الدورة المصغرة</h2>
-            <p class="text-base lg:text-xl text-center text-gray-700 mb-16 max-w-3xl mx-auto">
-                انسَ الأكواد المعقدة. هذه الدورة العملية تركّز على الحصول على **نتائج احترافية في أقل من 90 دقيقة** باستخدام الذكاء الاصطناعي.
+            <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-center mb-4 lg:mb-6 text-dark-text">
+                ماذا ستتعلم في هذه الدورة؟
+            </h2>
+            <p class="text-base md:text-lg lg:text-xl text-center text-gray-700 mb-10 lg:mb-16 max-w-3xl mx-auto leading-relaxed">
+                دورة عملية مكثفة تركز على النتائج الاحترافية في أقل من 90 دقيقة – بدون أكواد معقدة
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 
-                <!-- ميزة 1: هندسة الأوامر وبناء الهيكل --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
-                    <div class="text-4xl text-primary-purple mb-4">✍️</div>
-                    <h3 class="text-lg md:text-xl font-bold mb-3">هندسة الأوامر وبناء الهيكل (AI Prompt Engineering)</h3>
-                    <p class="text-sm text-gray-700">تعلّم فن صياغة الأوامر الفعّالة للذكاء الاصطناعي (Gemini) لإنشاء هيكل موقع كامل ومتماسك في دقائق، من الرأس إلى التذييل.</p>
+                <!-- ميزة 1 -->
+                <div class="bg-gradient-to-br from-white to-purple-50 p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-purple-100">
+                    <div class="text-5xl lg:text-6xl mb-4">✍️</div>
+                    <h3 class="text-lg lg:text-xl font-bold mb-3 text-dark-text">هندسة الأوامر بالAI</h3>
+                    <p class="text-sm lg:text-base text-gray-700 leading-relaxed">تعلّم فن صياغة الأوامر للذكاء الاصطناعي لإنشاء هيكل موقع كامل في دقائق</p>
                 </div>
 
-                <!-- ميزة 2: إتقان تصميم Tailwind والتجاوب --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
-                    <div class="text-4xl text-primary-orange mb-4">📐</div>
-                    <h3 class="text-lg md:text-xl font-bold mb-3">إتقان تصميم Tailwind والتجاوب (Responsive Design)</h3>
-                    <p class="text-sm text-gray-700">كيف تضمن أن الكود المُنشأ بالذكاء الاصطناعي يتبع أفضل ممارسات Tailwind CSS ويكون متجاوبًا 100% ويعمل بامتياز على جميع الأجهزة.</p>
-                </div>
-                
-                <!-- ميزة 3: النشر المباشر على الإنترنت --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
-                    <div class="text-4xl text-primary-purple mb-4">🚀</div>
-                    <h3 class="text-lg md:text-xl font-bold mb-3">النشر المباشر على الإنترنت (Vercel & Domain Setup)</h3>
-                    <p class="text-sm text-gray-700">خطوات سريعة لنشر موقعك الحي فوراً على منصة Vercel وربطه بنطاقك الخاص (Custom Domain) دون تعقيدات الخوادم.</p>
-
-                </div>
-
-                <!-- ميزة 4: تضمين نماذج الاتصال وجمع البيانات --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
-                    <div class="text-4xl text-primary-orange mb-4">📧</div>
-                    <h3 class="text-lg md:text-xl font-bold mb-3">تضمين نماذج الاتصال وجمع البيانات (Forms Integration)</h3>
-                    <p class="text-sm text-gray-700">إضافة نماذج اتصال فعّالة (Contact Forms) وربطها بخدمات تخزين البيانات مثل Google Sheets لتنظيم استفسارات العملاء تلقائيًا.</p>
-                </div>
-
-                <!-- ميزة 5: تفعيل بوابات الدفع الفوري --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
-                    <div class="text-4xl text-primary-purple mb-4">💳</div>
-                    <h3 class="text-lg md:text-xl font-bold mb-3">تفعيل بوابات الدفع الفوري (Payment Gateways)</h3>
-                    <p class="text-sm text-gray-700">دمج أزرار الدفع المباشر والآمنة (مثل Stripe أو PayPal) في صفحاتك، لتمكين العملاء من الشراء الفوري لمنتجاتك أو خدماتك.</p>
+                <!-- ميزة 2 -->
+                <div class="bg-gradient-to-br from-white to-orange-50 p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-orange-100">
+                    <div class="text-5xl lg:text-6xl mb-4">📐</div>
+                    <h3 class="text-lg lg:text-xl font-bold mb-3 text-dark-text">تصميم متجاوب بTailwind</h3>
+                    <p class="text-sm lg:text-base text-gray-700 leading-relaxed">ضمان تجاوب الكود المُنشأ بالAI 100% ليعمل بامتياز على جميع الأجهزة</p>
                 </div>
                 
-                <!-- ميزة 6: منهجية المستقل السريع --><div class="bg-white p-6 rounded-xl card-shadow hover:scale-[1.03] transition-transform duration-300 text-center">
-                    <div class="text-4xl text-primary-orange mb-4">💰</div>
-                    <h3 class="text-lg md:text-xl font-bold mb-3">منهجية المستقل السريع (The Fast Freelancer Method)</h3>
-                    <p class="text-sm text-gray-700">المنهجية الموثّقة خطوة بخطوة لتحويل متطلبات العميل إلى موقع جاهز ومربح في نفس يوم العمل، مما يزيد من هامش ربحك.</p>
+                <!-- ميزة 3 -->
+                <div class="bg-gradient-to-br from-white to-purple-50 p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-purple-100">
+                    <div class="text-5xl lg:text-6xl mb-4">🚀</div>
+                    <h3 class="text-lg lg:text-xl font-bold mb-3 text-dark-text">نشر مباشر للموقع</h3>
+                    <p class="text-sm lg:text-base text-gray-700 leading-relaxed">نشر موقعك الحي فوراً على Vercel وربطه بنطاقك الخاص بسهولة</p>
+                </div>
+
+                <!-- ميزة 4 -->
+                <div class="bg-gradient-to-br from-white to-orange-50 p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-orange-100">
+                    <div class="text-5xl lg:text-6xl mb-4">📧</div>
+                    <h3 class="text-lg lg:text-xl font-bold mb-3 text-dark-text">نماذج اتصال فعّالة</h3>
+                    <p class="text-sm lg:text-base text-gray-700 leading-relaxed">إضافة نماذج اتصال وربطها بGoogle Sheets لتنظيم الاستفسارات تلقائياً</p>
+                </div>
+
+                <!-- ميزة 5 -->
+                <div class="bg-gradient-to-br from-white to-purple-50 p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-purple-100">
+                    <div class="text-5xl lg:text-6xl mb-4">💳</div>
+                    <h3 class="text-lg lg:text-xl font-bold mb-3 text-dark-text">بوابات دفع آمنة</h3>
+                    <p class="text-sm lg:text-base text-gray-700 leading-relaxed">دمج Stripe أو PayPal لتمكين العملاء من الشراء الفوري بأمان</p>
+                </div>
+                
+                <!-- ميزة 6 -->
+                <div class="bg-gradient-to-br from-white to-orange-50 p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-orange-100">
+                    <div class="text-5xl lg:text-6xl mb-4">💰</div>
+                    <h3 class="text-lg lg:text-xl font-bold mb-3 text-dark-text">منهجية المستقل السريع</h3>
+                    <p class="text-sm lg:text-base text-gray-700 leading-relaxed">تحويل متطلبات العميل إلى موقع جاهز في نفس اليوم لزيادة الربح</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم لمن هذه الدورة (Audience) --><section class="py-24">
+    <!-- قسم لمن هذه الدورة (Audience) -->
+    <section class="py-12 lg:py-20 bg-accent-light">
         <div class="container mx-auto px-4 max-w-7xl">
-            <!-- العنوان الرئيسي للقسم بحجم مناسب للهاتف والديسكتوب --><h2 class="text-xl lg:text-4xl font-extrabold text-center mb-16 text-dark-text">هل هذه الدورة مناسبة لك؟ الإجابة نعم!</h2>
+            <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-center mb-4 text-dark-text">
+                لمن هذه الدورة؟
+            </h2>
+            <p class="text-base md:text-lg lg:text-xl text-center text-gray-700 mb-10 lg:mb-16 max-w-2xl mx-auto">
+                سواء كنت صاحب عمل أو مستقل أو تبحث عن مهارة جديدة – هذه الدورة مصممة لك
+            </p>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                <!-- الجمهور 1: أصحاب الأعمال --><div class="p-8 bg-white border-2 border-primary-orange rounded-xl card-shadow text-center">
-                    <div class="text-6xl mb-4 text-primary-orange">💼</div>
-                    <h3 class="text-lg lg:text-2xl font-bold mb-3 text-dark-text">صاحب العمل الصغير</h3>
-                    <p class="text-sm text-gray-700">توقف عن الدفع للمستقلين المكلفين. قم ببناء وإدارة تواجدك الاحترافي الخاص على الإنترنت بسرعة وبتكلفة معقولة جداً.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- الجمهور 1 -->
+                <div class="p-6 lg:p-8 bg-white border-2 border-primary-orange rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="text-6xl lg:text-7xl mb-4">💼</div>
+                    <h3 class="text-xl lg:text-2xl font-bold mb-3 text-dark-text">أصحاب الأعمال</h3>
+                    <p class="text-sm lg:text-base text-gray-700 leading-relaxed">ابنِ تواجدك الاحترافي على الإنترنت بنفسك بسرعة وبتكلفة معقولة – دون الحاجة لمستقلين</p>
                 </div>
 
-                <!-- الجمهور 2: المستقل الطموح --><div class="p-8 bg-white border border-secondary-gray rounded-xl card-shadow text-center">
-                    <div class="text-6xl mb-4 text-primary-purple">🛠️</div>
-                    <h3 class="text-lg lg:text-2xl font-bold mb-3 text-dark-text">وكالة الويب / المستقل الطموح</h3>
-                    <p class="text-sm text-gray-700">أضف خدمة مطلوبة وعالية السرعة وقليلة الجهد إلى محفظتك يمكنك البدء في بيعها هذا الأسبوع.</p>
+                <!-- الجمهور 2 -->
+                <div class="p-6 lg:p-8 bg-white border-2 border-primary-purple rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="text-6xl lg:text-7xl mb-4">🛠️</div>
+                    <h3 class="text-xl lg:text-2xl font-bold mb-3 text-dark-text">المستقلون والوكالات</h3>
+                    <p class="text-sm lg:text-base text-gray-700 leading-relaxed">أضف خدمة مطلوبة وسريعة إلى محفظتك وابدأ في بيعها هذا الأسبوع</p>
                 </div>
 
-                <!-- الجمهور 3: المربي / الوالد --><div class="p-8 bg-white border border-secondary-gray rounded-xl card-shadow text-center">
-                    <div class="text-6xl mb-4 text-primary-orange">👨‍🏫</div>
-                    <h3 class="text-lg lg:text-2xl font-bold mb-3 text-dark-text">المربي أو الباحث عن مهارة جديدة</h3>
-                    <p class="text-sm text-gray-700">تعلّم مهارة عصرية ومستقبلية واستخدم الذكاء الاصطناعي لفتح آفاق مهنية جديدة.</p>
+                <!-- الجمهور 3 -->
+                <div class="p-6 lg:p-8 bg-white border-2 border-primary-orange rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="text-6xl lg:text-7xl mb-4">👨‍🏫</div>
+                    <h3 class="text-xl lg:text-2xl font-bold mb-3 text-dark-text">الباحثون عن مهارات جديدة</h3>
+                    <p class="text-sm lg:text-base text-gray-700 leading-relaxed">اكتسب مهارة عصرية مستقبلية بالذكاء الاصطناعي لفتح آفاق مهنية جديدة</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم CTA النهائي (Final Push) --><section id="cta-section" class="py-24 bg-primary-purple">
+    <!-- قسم CTA النهائي -->
+    <section id="cta-section" class="py-16 lg:py-24 bg-gradient-to-br from-primary-purple to-purple-900">
         <div class="container mx-auto px-4 max-w-4xl text-center">
-            <!-- العنوان الرئيسي للقسم بحجم مناسب للهاتف والديسكتوب --><h2 class="text-2xl md:text-5xl font-extrabold text-white mb-6">توقف عن الحلم. ابدأ الإطلاق.</h2>
-            <!-- [تعديل] تم تغيير لون النص هنا إلى الأبيض -->
-            <p class="text-base md:text-xl text-white bg-white/10 p-4 inline-block rounded-lg mb-10">
-                لماذا تنتظر؟ استثمر 120 د.ت لتتعلم مهارة تبني بها مستقبلك المهني.
+            <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 lg:mb-8 leading-tight">
+                ابدأ رحلتك اليوم 🚀
+            </h2>
+            
+            <p class="text-lg md:text-xl lg:text-2xl text-white mb-4 leading-relaxed">
+                استثمر 120 د.ت لتتعلم مهارة تبني بها مستقبلك المهني
             </p>
+            
+            <div class="bg-white/20 backdrop-blur-sm p-4 lg:p-6 rounded-2xl inline-block mb-8 lg:mb-10">
+                <p class="text-white text-base md:text-lg lg:text-xl font-semibold">
+                    ✨ دورة عملية + نتائج حقيقية + دعم مستمر
+                </p>
+            </div>
 
-            <button onclick="showEnrollmentMessage()" class="w-full md:w-auto px-12 py-5 text-lg md:text-2xl font-bold text-white bg-primary-orange rounded-xl hover:bg-primary-hover transition duration-300 shadow-2xl shadow-primary-orange/50 transform hover:scale-105 active:scale-95">
-                ✅ أكمل التسجيل وابدأ الآن بـ 120 د.ت
+            <button onclick="showEnrollmentMessage()" class="w-full sm:w-auto px-10 lg:px-14 py-4 lg:py-6 text-xl lg:text-2xl font-bold text-white bg-primary-orange rounded-xl hover:bg-primary-hover transition-all duration-300 shadow-2xl hover:shadow-primary-orange/50 transform hover:scale-105 active:scale-95">
+                ✅ سجّل الآن بـ 120 د.ت فقط
             </button>
+            
+            <p class="text-white/80 text-sm md:text-base mt-6 lg:mt-8">
+                انضم لـ +1200 متعلم بدأوا رحلتهم معنا
+            </p>
         </div>
     </section>
 
-    <!-- التذييل (Footer) --><footer class="py-10 bg-dark-text text-white">
-        <div class="container mx-auto px-4 max-w-7xl text-center text-sm text-gray-400">
-            <p>&copy; 2025 Wijha (وجهة) Academy. جميع الحقوق محفوظة.</p>
-            <p class="mt-2">مصمم خصيصاً لمساعدة رواد الأعمال والمستقلين على النجاح.</p>
+    <!-- التذييل -->
+    <footer class="py-8 lg:py-12 bg-dark-text text-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-right">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="أكاديمية وجهة" class="h-12 w-auto mx-auto md:mx-0 mb-3">
+                    <p class="text-gray-400 text-sm">أكاديمية وجهة - مهارات المستقبل</p>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wijha Academy</p>
+                    <p class="text-gray-500 text-xs mt-1">جميع الحقوق محفوظة</p>
+                </div>
+                
+                <div class="flex gap-4">
+                    <a href="index.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الرئيسية</a>
+                    <a href="courses.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الدورات</a>
+                </div>
+            </div>
         </div>
     </footer>
 
