@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطط الاشتراك - أكاديمية وجهة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(22, 22, 22, 0.08);
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 28px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #F48434;
+        }
+        input:checked + .slider:before {
+            transform: translateX(32px);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-orange': '#F48434',
+                        'primary-purple': '#7C34D9',
+                        'primary-hover': '#e0742f',
+                        'secondary-gray': '#e5e7eb',
+                        'accent-light': '#fdf2e8',
+                        'dark-text': '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- Header / NavBar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center hover:opacity-80 transition">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="أكاديمية وجهة" class="h-14 w-auto">
+                </a>
+                
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">الرئيسية</a>
+                    <a href="courses.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">الدورات</a>
+                    <a href="pricing.html" class="text-primary-orange hover:text-primary-hover font-semibold transition">الأسعار</a>
+                    <a href="testimonials.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">آراء الطلاب</a>
+                    <a href="#pricing-section" class="px-6 py-3 bg-primary-orange text-white rounded-lg hover:bg-primary-hover font-bold transition">اشترك الآن</a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-3">
+                <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">الرئيسية</a>
+                <a href="courses.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">الدورات</a>
+                <a href="pricing.html" class="block px-4 py-2 bg-accent-light text-primary-orange rounded-lg transition font-semibold">الأسعار</a>
+                <a href="testimonials.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">آراء الطلاب</a>
+                <a href="#pricing-section" class="block px-4 py-2 bg-primary-orange text-white rounded-lg hover:bg-primary-hover transition font-bold text-center">اشترك الآن</a>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 bg-gradient-to-br from-primary-purple to-primary-orange text-white">
+        <div class="container mx-auto px-4 max-w-7xl text-center">
+            <h1 class="text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-extrabold mb-6 leading-tight">اختر الخطة المناسبة لك</h1>
+            <p class="text-base lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                خطط اشتراك مرنة تناسب جميع المستويات - من المبتدئين إلى المحترفين
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing-section" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            
+            <!-- Billing Toggle -->
+            <div class="flex items-center justify-center gap-4 mb-16">
+                <span class="text-lg font-semibold text-gray-700" id="monthly-label">شهري</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="billing-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span class="text-lg font-semibold text-gray-700" id="yearly-label">سنوي</span>
+                <span class="bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-full">وفّر 15%</span>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Free Plan -->
+                <div class="bg-white rounded-3xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <div class="text-5xl mb-4">🆓</div>
+                            <h3 class="text-2xl font-bold text-dark-text mb-2">خطة مجانية</h3>
+                            <p class="text-gray-600 text-sm">ابدأ رحلة التعلم مجاناً</p>
+                        </div>
+                        
+                        <div class="text-center mb-6">
+                            <div class="text-5xl font-black text-dark-text mb-2">
+                                <span class="monthly-price">0</span>
+                                <span class="yearly-price hidden">0</span>
+                                <span class="text-2xl">د.ت</span>
+                            </div>
+                            <p class="text-gray-500 text-sm">
+                                <span class="monthly-price">مجاناً للأبد</span>
+                                <span class="yearly-price hidden">مجاناً للأبد</span>
+                            </p>
+                        </div>
+
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 text-xl">✓</span>
+                                <span class="text-gray-700">الوصول لجميع الدورات المجانية</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 text-xl">✓</span>
+                                <span class="text-gray-700">شهادة إتمام للدورات المجانية</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 text-xl">✓</span>
+                                <span class="text-gray-700">دعم المجتمع</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-gray-300 text-xl">✗</span>
+                                <span class="text-gray-400">الدورات المدفوعة</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-gray-300 text-xl">✗</span>
+                                <span class="text-gray-400">الدعم الفني المباشر</span>
+                            </li>
+                        </ul>
+
+                        <a href="courses.html" class="block w-full px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-bold hover:bg-gray-300 transition text-center">
+                            ابدأ مجاناً
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Premium Plan (Most Popular) -->
+                <div class="bg-gradient-to-br from-primary-orange to-orange-600 rounded-3xl card-shadow overflow-hidden relative transform scale-105 hover:scale-110 transition-transform duration-300">
+                    <div class="absolute top-4 right-4 bg-white text-primary-orange px-4 py-1 rounded-full text-sm font-bold">
+                        الأكثر شعبية
+                    </div>
+                    <div class="p-8 text-white">
+                        <div class="text-center mb-6">
+                            <div class="text-5xl mb-4">🚀</div>
+                            <h3 class="text-2xl font-bold mb-2">خطة بريميوم</h3>
+                            <p class="text-white/90 text-sm">للمتعلمين الجادين</p>
+                        </div>
+                        
+                        <div class="text-center mb-6">
+                            <div class="text-5xl font-black mb-2">
+                                <span class="monthly-price">50</span>
+                                <span class="yearly-price hidden">510</span>
+                                <span class="text-2xl">د.ت</span>
+                            </div>
+                            <p class="text-white/80 text-sm">
+                                <span class="monthly-price">شهرياً</span>
+                                <span class="yearly-price hidden">سنوياً (وفّر 90 د.ت)</span>
+                            </p>
+                        </div>
+
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="text-white text-xl">✓</span>
+                                <span class="text-white">كل مزايا الخطة المجانية</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-white text-xl">✓</span>
+                                <span class="text-white">الوصول لجميع الدورات الأساسية</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-white text-xl">✓</span>
+                                <span class="text-white">شهادات معتمدة</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-white text-xl">✓</span>
+                                <span class="text-white">دعم فني عبر البريد</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-white text-xl">✓</span>
+                                <span class="text-white">مشاريع عملية</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-white text-xl">✓</span>
+                                <span class="text-white">تحديثات مستمرة للمحتوى</span>
+                            </li>
+                        </ul>
+
+                        <button onclick="openPlanModal('خطة بريميوم')" class="block w-full px-6 py-3 bg-white text-primary-orange rounded-xl font-bold hover:bg-gray-100 transition text-center">
+                            اشترك الآن
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="bg-white rounded-3xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300 border-2 border-primary-purple">
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <div class="text-5xl mb-4">👑</div>
+                            <h3 class="text-2xl font-bold text-dark-text mb-2">خطة برو</h3>
+                            <p class="text-gray-600 text-sm">للمحترفين والشركات</p>
+                        </div>
+                        
+                        <div class="text-center mb-6">
+                            <div class="text-5xl font-black text-dark-text mb-2">
+                                <span class="monthly-price">80</span>
+                                <span class="yearly-price hidden">816</span>
+                                <span class="text-2xl">د.ت</span>
+                            </div>
+                            <p class="text-gray-500 text-sm">
+                                <span class="monthly-price">شهرياً</span>
+                                <span class="yearly-price hidden">سنوياً (وفّر 144 د.ت)</span>
+                            </p>
+                        </div>
+
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 text-xl">✓</span>
+                                <span class="text-gray-700">كل مزايا خطة بريميوم</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 text-xl">✓</span>
+                                <span class="text-gray-700">الوصول لجميع الدورات المتقدمة</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 text-xl">✓</span>
+                                <span class="text-gray-700">جلسات تدريب فردية شهرية</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 text-xl">✓</span>
+                                <span class="text-gray-700">دعم فني مباشر على مدار الساعة</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 text-xl">✓</span>
+                                <span class="text-gray-700">محتوى حصري ومتقدم</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 text-xl">✓</span>
+                                <span class="text-gray-700">الوصول المبكر للدورات الجديدة</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 text-xl">✓</span>
+                                <span class="text-gray-700">شبكة تواصل مع المحترفين</span>
+                            </li>
+                        </ul>
+
+                        <button onclick="openPlanModal('خطة برو')" class="block w-full px-6 py-3 bg-gradient-to-r from-primary-purple to-primary-orange text-white rounded-xl font-bold hover:shadow-xl transition text-center">
+                            اشترك في برو
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-[2rem] md:text-[2.5rem] font-extrabold text-dark-text mb-12 text-center">الأسئلة الشائعة</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold text-dark-text mb-3">هل يمكنني تغيير خطتي لاحقاً؟</h3>
+                    <p class="text-gray-600">نعم، يمكنك الترقية أو التخفيض في أي وقت. سيتم تطبيق التغييرات في الفترة التالية للفوترة.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold text-dark-text mb-3">هل يمكنني إلغاء الاشتراك؟</h3>
+                    <p class="text-gray-600">بالطبع! يمكنك إلغاء اشتراكك في أي وقت. ستحتفظ بإمكانية الوصول حتى نهاية فترة الفوترة الحالية.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold text-dark-text mb-3">ما هي وسائل الدفع المتاحة؟</h3>
+                    <p class="text-gray-600">نقبل جميع بطاقات الائتمان الرئيسية، بالإضافة إلى PayPal والتحويلات البنكية.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold text-dark-text mb-3">هل هناك فترة تجريبية مجانية؟</h3>
+                    <p class="text-gray-600">نعم! نقدم فترة تجريبية مجانية لمدة 7 أيام لخطة بريميوم و 14 يوم لخطة برو.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 lg:py-12 bg-dark-text text-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-right">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="أكاديمية وجهة" class="h-12 w-auto mx-auto md:mx-0 mb-3" style="filter: brightness(0) invert(1);">
+                    <p class="text-gray-400 text-sm">أكاديمية وجهة - مهارات المستقبل</p>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wijha Academy</p>
+                    <p class="text-gray-500 text-xs mt-1">جميع الحقوق محفوظة</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="index.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الرئيسية</a>
+                    <a href="courses.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الدورات</a>
+                    <a href="pricing.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الأسعار</a>
+                    <a href="testimonials.html" class="text-gray-400 hover:text-primary-orange transition text-sm">آراء الطلاب</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Alert -->
+    <div id="customAlert" class="fixed top-8 left-1/2 transform -translate-x-1/2 z-[60] hidden transition-all duration-500 ease-out">
+        <div class="bg-white rounded-2xl shadow-2xl p-6 min-w-[320px] max-w-md border-t-4" id="alertBox">
+            <div class="flex items-start gap-4">
+                <div id="alertIcon" class="text-4xl flex-shrink-0"></div>
+                <div class="flex-1">
+                    <h3 id="alertTitle" class="font-bold text-lg mb-1"></h3>
+                    <p id="alertMessage" class="text-gray-600 text-sm leading-relaxed"></p>
+                </div>
+                <button onclick="closeCustomAlert()" class="text-gray-400 hover:text-gray-600 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enrollment Modal -->
+    <div id="planModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto card-shadow">
+            <!-- Modal Header -->
+            <div class="sticky top-0 bg-gradient-to-r from-primary-purple to-primary-orange p-6 rounded-t-3xl">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white mb-2">اشترك في <span id="modalPlanName"></span></h2>
+                        <p class="text-white/90 text-sm">املأ البيانات وسنتواصل معك لإتمام الاشتراك</p>
+                    </div>
+                    <button onclick="closePlanModal()" class="text-white hover:bg-white/20 rounded-full p-2 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 lg:p-8">
+                <form id="planRegistrationForm" class="space-y-6">
+                    <!-- Name Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="planFirstName" class="block text-sm font-bold text-dark-text mb-2">الاسم الأول *</label>
+                            <input type="text" id="planFirstName" name="firstName" required
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-orange focus:outline-none transition"
+                                placeholder="أدخل اسمك الأول">
+                        </div>
+                        <div>
+                            <label for="planLastName" class="block text-sm font-bold text-dark-text mb-2">اسم العائلة *</label>
+                            <input type="text" id="planLastName" name="lastName" required
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-orange focus:outline-none transition"
+                                placeholder="أدخل اسم عائلتك">
+                        </div>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div>
+                        <label for="planPhone" class="block text-sm font-bold text-dark-text mb-2">رقم الهاتف *</label>
+                        <input type="tel" id="planPhone" name="phone" required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-orange focus:outline-none transition"
+                            placeholder="+216 XX XXX XXX">
+                    </div>
+
+                    <!-- Optional Fields -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="planWhatsapp" class="block text-sm font-bold text-dark-text mb-2">واتساب (اختياري)</label>
+                            <input type="tel" id="planWhatsapp" name="whatsapp"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-purple focus:outline-none transition"
+                                placeholder="+216 XX XXX XXX">
+                        </div>
+                        <div>
+                            <label for="planEmail" class="block text-sm font-bold text-dark-text mb-2">البريد الإلكتروني (اختياري)</label>
+                            <input type="email" id="planEmail" name="email"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-purple focus:outline-none transition"
+                                placeholder="example@email.com">
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div>
+                        <label for="planPaymentMethod" class="block text-sm font-bold text-dark-text mb-2">طريقة الدفع *</label>
+                        <select id="planPaymentMethod" name="paymentMethod" required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-orange focus:outline-none transition bg-white">
+                            <option value="">اختر طريقة الدفع</option>
+                            <option value="d17">D17</option>
+                            <option value="redotpay">RedotPay</option>
+                            <option value="bank-transfer">تحويل بنكي</option>
+                            <option value="binance">Binance</option>
+                            <option value="other">طريقة أخرى</option>
+                        </select>
+                    </div>
+
+                    <!-- Other Payment Method Input (Hidden by default) -->
+                    <div id="planOtherPaymentDiv" class="hidden">
+                        <label for="planOtherPayment" class="block text-sm font-bold text-dark-text mb-2">حدد طريقة الدفع الأخرى</label>
+                        <input type="text" id="planOtherPayment" name="otherPayment"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-orange focus:outline-none transition"
+                            placeholder="مثال: Paypal، بطاقة ائتمان، إلخ...">
+                    </div>
+
+                    <!-- Hidden field for plan name -->
+                    <input type="hidden" id="selectedPlanName" name="planName">
+
+                    <!-- Submit Button -->
+                    <div class="pt-4">
+                        <button type="submit"
+                            class="w-full px-8 py-4 bg-gradient-to-r from-primary-purple to-primary-orange text-white text-lg font-bold rounded-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                            🚀 إرسال طلب الاشتراك
+                        </button>
+                    </div>
+
+                    <p class="text-sm text-gray-500 text-center mt-4">
+                        * الحقول المطلوبة
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#chatWidget").load("chat-widget.html");
+        });
+    </script>
+    <div id="chatWidget"></div>
+
+    <!-- Modal & Form Scripts -->
+    <script>
+        // Google Sheets Web App URL (same as course form)
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwwwiUE_xC2mK4kbJS3Cgp_D-F-YCikyTA0_jio65DZ4eimCjRUisg7rgafaFTcpAKJkA/exec';
+
+        // Custom Alert Function
+        function showCustomAlert(title, message, type = 'success') {
+            const alertElement = document.getElementById('customAlert');
+            const alertBox = document.getElementById('alertBox');
+            const alertIcon = document.getElementById('alertIcon');
+            const alertTitle = document.getElementById('alertTitle');
+            const alertMessage = document.getElementById('alertMessage');
+            
+            // Set content
+            alertTitle.textContent = title;
+            alertMessage.textContent = message;
+            
+            // Set style based on type
+            if (type === 'success') {
+                alertBox.className = 'bg-white rounded-2xl shadow-2xl p-6 min-w-[320px] max-w-md border-t-4 border-green-500';
+                alertIcon.textContent = '✅';
+                alertTitle.className = 'font-bold text-lg mb-1 text-green-600';
+            } else if (type === 'error') {
+                alertBox.className = 'bg-white rounded-2xl shadow-2xl p-6 min-w-[320px] max-w-md border-t-4 border-red-500';
+                alertIcon.textContent = '❌';
+                alertTitle.className = 'font-bold text-lg mb-1 text-red-600';
+            } else if (type === 'info') {
+                alertBox.className = 'bg-white rounded-2xl shadow-2xl p-6 min-w-[320px] max-w-md border-t-4 border-primary-purple';
+                alertIcon.textContent = 'ℹ️';
+                alertTitle.className = 'font-bold text-lg mb-1 text-primary-purple';
+            }
+            
+            // Show alert with animation
+            alertElement.classList.remove('hidden');
+            setTimeout(() => {
+                alertElement.style.opacity = '0';
+                alertElement.style.transform = 'translate(-50%, -20px)';
+                setTimeout(() => {
+                    alertElement.style.opacity = '1';
+                    alertElement.style.transform = 'translate(-50%, 0)';
+                }, 50);
+            }, 10);
+            
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                closeCustomAlert();
+            }, 5000);
+        }
+        
+        function closeCustomAlert() {
+            const alertElement = document.getElementById('customAlert');
+            alertElement.style.opacity = '0';
+            alertElement.style.transform = 'translate(-50%, -20px)';
+            setTimeout(() => {
+                alertElement.classList.add('hidden');
+            }, 300);
+        }
+
+        // Open modal with plan name
+        function openPlanModal(planName) {
+            document.getElementById('modalPlanName').textContent = planName;
+            document.getElementById('selectedPlanName').value = planName;
+            document.getElementById('planModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Close modal
+        function closePlanModal() {
+            document.getElementById('planModal').classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+            document.getElementById('planRegistrationForm').reset();
+            document.getElementById('planOtherPaymentDiv').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('planModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePlanModal();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Toggle other payment method
+            const paymentSelect = document.getElementById('planPaymentMethod');
+            if (paymentSelect) {
+                paymentSelect.addEventListener('change', function() {
+                    const otherPaymentDiv = document.getElementById('planOtherPaymentDiv');
+                    const otherPaymentInput = document.getElementById('planOtherPayment');
+                    
+                    if (this.value === 'other') {
+                        otherPaymentDiv.classList.remove('hidden');
+                        otherPaymentInput.required = true;
+                    } else {
+                        otherPaymentDiv.classList.add('hidden');
+                        otherPaymentInput.required = false;
+                        otherPaymentInput.value = '';
+                    }
+                });
+            }
+
+            // Form submission
+            const form = document.getElementById('planRegistrationForm');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const originalButtonText = submitButton.innerHTML;
+                    
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '⏳ جاري الإرسال...';
+                    
+                    try {
+                        const formData = new FormData();
+                        formData.append('firstName', document.getElementById('planFirstName').value);
+                        formData.append('lastName', document.getElementById('planLastName').value);
+                        formData.append('phone', document.getElementById('planPhone').value);
+                        formData.append('whatsapp', document.getElementById('planWhatsapp').value || '-');
+                        formData.append('email', document.getElementById('planEmail').value || '-');
+                        
+                        const paymentMethod = document.getElementById('planPaymentMethod').value;
+                        const otherPayment = document.getElementById('planOtherPayment').value;
+                        formData.append('paymentMethod', paymentMethod === 'other' ? otherPayment : paymentMethod);
+                        formData.append('courseName', document.getElementById('selectedPlanName').value); // Send plan name as courseName
+                        formData.append('timestamp', new Date().toLocaleString('ar-TN'));
+                        
+                        const response = await fetch(GOOGLE_SCRIPT_URL, {
+                            method: 'POST',
+                            body: formData,
+                            mode: 'no-cors'
+                        });
+                        
+                        // Show success message
+                        showCustomAlert('تم بنجاح! 🎉', 'شكراً لطلب الاشتراك! تم إرسال طلبك بنجاح. سنتواصل معك قريباً لإتمام عملية الاشتراك.', 'success');
+                        closePlanModal();
+                        
+                    } catch (error) {
+                        console.error('Error:', error);
+                        showCustomAlert('حدث خطأ', 'عذراً، حدث خطأ. يرجى التواصل معنا عبر واتساب: +216 12 345 678', 'error');
+                    } finally {
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButtonText;
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Pricing Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('billing-toggle');
+            const monthlyPrices = document.querySelectorAll('.monthly-price');
+            const yearlyPrices = document.querySelectorAll('.yearly-price');
+            
+            toggle.addEventListener('change', function() {
+                if (this.checked) {
+                    // Show yearly prices
+                    monthlyPrices.forEach(el => el.classList.add('hidden'));
+                    yearlyPrices.forEach(el => el.classList.remove('hidden'));
+                } else {
+                    // Show monthly prices
+                    monthlyPrices.forEach(el => el.classList.remove('hidden'));
+                    yearlyPrices.forEach(el => el.classList.add('hidden'));
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

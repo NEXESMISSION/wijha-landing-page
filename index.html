@@ -151,9 +151,11 @@
                 <!-- Menu -->
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#about" class="text-gray-700 hover:text-primary-orange font-semibold transition">من نحن</a>
+                    <a href="courses.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">الدورات</a>
+                    <a href="pricing.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">الأسعار</a>
                     <a href="testimonials.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">آراء الطلاب</a>
-                    <a href="courses.html" class="px-6 py-3 bg-primary-orange text-white rounded-lg hover:bg-primary-hover font-bold transition">
-                        تصفح الدورات
+                    <a href="pricing.html" class="px-6 py-3 bg-primary-orange text-white rounded-lg hover:bg-primary-hover font-bold transition">
+                        اشترك الآن
                     </a>
                 </div>
 
@@ -168,8 +170,10 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-3">
                 <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">من نحن</a>
+                <a href="courses.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">الدورات</a>
+                <a href="pricing.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">الأسعار</a>
                 <a href="testimonials.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">آراء الطلاب</a>
-                <a href="courses.html" class="block px-4 py-2 bg-primary-orange text-white rounded-lg hover:bg-primary-hover transition font-bold text-center">تصفح الدورات</a>
+                <a href="pricing.html" class="block px-4 py-2 bg-primary-orange text-white rounded-lg hover:bg-primary-hover transition font-bold text-center">اشترك الآن</a>
             </div>
         </div>
     </nav>
@@ -263,145 +267,474 @@
         </div>
     </section>
 
-    <!-- Courses Overview -->
-    <section id="courses" class="py-20 bg-white">
-        <div class="container mx-auto px-4 max-w-7xl">
-            <div class="text-center mb-16">
-                <h2 class="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-black text-dark-text mb-4">مجالات التدريب</h2>
-                <p class="text-base lg:text-xl text-gray-600">نُدرّب في 6 مجالات أساسية لمهارات المستقبل</p>
+    <!-- Combined Courses & Training Areas -->
+    <section id="courses" class="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        <!-- Background Decorations -->
+        <div class="absolute top-0 right-0 w-72 h-72 bg-primary-orange/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-purple/5 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 max-w-7xl relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <div class="inline-block mb-4">
+                    <span class="bg-gradient-to-r from-primary-purple to-primary-orange text-white px-6 py-2 rounded-full text-sm font-bold">
+                        🎓 مكتبة الدورات
+                    </span>
+                </div>
+                <h2 class="text-[2rem] md:text-[2.75rem] lg:text-[3.5rem] font-black text-dark-text mb-6 leading-tight">
+                    استكشف دوراتنا التدريبية
+                </h2>
+                <p class="text-base lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    اختر من بين <span class="text-primary-orange font-bold">دورات مجانية</span> ومدفوعة في مجالات تقنية متنوعة
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Available Course -->
-                <div class="bg-gradient-to-br from-primary-purple to-primary-orange p-1 rounded-2xl">
-                    <div class="bg-white p-6 rounded-2xl h-full flex flex-col">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-4xl">💻</span>
-                            <span class="px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">متاحة</span>
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-3 gap-4 max-w-3xl mx-auto mb-16">
+                <div class="bg-white rounded-2xl p-6 text-center card-shadow hover:shadow-xl transition">
+                    <div class="text-3xl font-black text-green-500 mb-2">6+</div>
+                    <div class="text-sm text-gray-600">دورات مجانية</div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center card-shadow hover:shadow-xl transition">
+                    <div class="text-3xl font-black text-primary-orange mb-2">3+</div>
+                    <div class="text-sm text-gray-600">دورات Premium</div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center card-shadow hover:shadow-xl transition">
+                    <div class="text-3xl font-black text-primary-purple mb-2">2+</div>
+                    <div class="text-sm text-gray-600">دورات Pro</div>
+                </div>
+            </div>
+
+            <!-- Courses Grid -->
+            <div class="mb-12">
+                <!-- Free Courses Section -->
+                <div class="mb-12">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="bg-green-500 text-white px-4 py-2 rounded-xl font-bold text-sm">🆓 مجانية</span>
+                        <h3 class="text-2xl font-bold text-dark-text">ابدأ التعلم مجاناً</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Free Course 1 -->
+                        <div class="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                            <div class="h-3 bg-gradient-to-r from-green-500 to-emerald-600"></div>
+                            <div class="p-6">
+                                <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🤖</div>
+                                <h4 class="text-lg font-bold mb-2 text-dark-text">ذكاء اصطناعي</h4>
+                                <p class="text-sm text-gray-600 mb-4">أساسيات AI للمبتدئين</p>
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <span>⏱️ 2.5 ساعة</span>
+                                    <span>👥 1.2K</span>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-[1.25rem] font-bold mb-2">تطوير المواقع بالAI</h3>
-                        <p class="text-sm text-gray-600 mb-4 flex-grow">ابنِ مواقع احترافية بدون برمجة</p>
-                        <a href="course-ai-websites.html" class="inline-block w-full px-4 py-2 bg-primary-orange text-white text-sm font-bold rounded-lg hover:bg-primary-hover transition text-center">
-                            عرض التفاصيل ←
-                        </a>
+
+                        <!-- Free Course 2 -->
+                        <div class="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                            <div class="h-3 bg-gradient-to-r from-green-500 to-emerald-600"></div>
+                            <div class="p-6">
+                                <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🎨</div>
+                                <h4 class="text-lg font-bold mb-2 text-dark-text">تصميم المواقع</h4>
+                                <p class="text-sm text-gray-600 mb-4">أساسيات التصميم الحديث</p>
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <span>⏱️ 3 ساعات</span>
+                                    <span>👥 890</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Free Course 3 -->
+                        <div class="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                            <div class="h-3 bg-gradient-to-r from-green-500 to-emerald-600"></div>
+                            <div class="p-6">
+                                <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">📱</div>
+                                <h4 class="text-lg font-bold mb-2 text-dark-text">تسويق رقمي</h4>
+                                <p class="text-sm text-gray-600 mb-4">أساسيات التسويق الإلكتروني</p>
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <span>⏱️ 4 ساعات</span>
+                                    <span>👥 2.1K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Free Course 4 -->
+                        <div class="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                            <div class="h-3 bg-gradient-to-r from-green-500 to-emerald-600"></div>
+                            <div class="p-6">
+                                <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">📊</div>
+                                <h4 class="text-lg font-bold mb-2 text-dark-text">إكسل</h4>
+                                <p class="text-sm text-gray-600 mb-4">إكسل من الصفر</p>
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <span>⏱️ 3.5 ساعة</span>
+                                    <span>👥 1.6K</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Coming Soon Courses -->
-                <div class="bg-white border-2 border-gray-200 p-6 rounded-2xl flex flex-col">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-4xl">🤖</span>
-                        <span class="px-3 py-1 bg-gray-200 text-gray-600 text-xs font-bold rounded-full">قريباً</span>
+                <!-- Premium Courses Section -->
+                <div class="mb-12">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="bg-gradient-to-r from-primary-orange to-orange-600 text-white px-4 py-2 rounded-xl font-bold text-sm">🚀 Premium</span>
+                        <h3 class="text-2xl font-bold text-dark-text">دورات مدفوعة متقدمة</h3>
                     </div>
-                    <h3 class="text-[1.25rem] font-bold mb-2">الذكاء الاصطناعي</h3>
-                    <p class="text-sm text-gray-600">أتقن أدوات AI لمضاعفة إنتاجيتك</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Premium Course 1 - AI Website (Featured) -->
+                        <div class="group bg-gradient-to-br from-primary-purple/5 to-primary-orange/5 rounded-2xl overflow-hidden card-shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary-orange">
+                            <div class="h-3 bg-gradient-to-r from-primary-purple to-primary-orange"></div>
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="text-5xl group-hover:scale-110 transition-transform">💻</div>
+                                    <span class="bg-white px-3 py-1 rounded-full text-xs font-bold text-primary-orange">الأكثر شعبية</span>
+                                </div>
+                                <h4 class="text-lg font-bold mb-2 text-dark-text">تطوير المواقع بالAI</h4>
+                                <p class="text-sm text-gray-600 mb-4">ابنِ مواقع احترافية بدون برمجة</p>
+                                <div class="flex items-center justify-between text-xs text-gray-500 mb-4">
+                                    <span>⏱️ 90 دقيقة</span>
+                                    <span class="font-bold text-primary-orange">120 د.ت</span>
+                                </div>
+                                <a href="course-ai-websites.html" class="block w-full px-4 py-3 bg-gradient-to-r from-primary-purple to-primary-orange text-white text-sm font-bold rounded-xl hover:shadow-lg transition text-center">
+                                    عرض التفاصيل →
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Premium Course 2 -->
+                        <div class="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary-orange/20">
+                            <div class="h-3 bg-gradient-to-r from-primary-orange to-orange-600"></div>
+                            <div class="p-6">
+                                <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">💡</div>
+                                <h4 class="text-lg font-bold mb-2 text-dark-text">ريادة الأعمال</h4>
+                                <p class="text-sm text-gray-600 mb-4">ابنِ مشروعك الرقمي الخاص</p>
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <span>⏱️ 15 ساعة</span>
+                                    <span>يتطلب اشتراك</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Premium Course 3 -->
+                        <div class="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary-orange/20">
+                            <div class="h-3 bg-gradient-to-r from-primary-orange to-orange-600"></div>
+                            <div class="p-6">
+                                <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🛒</div>
+                                <h4 class="text-lg font-bold mb-2 text-dark-text">التجارة الإلكترونية</h4>
+                                <p class="text-sm text-gray-600 mb-4">إطلاق متجرك الإلكتروني</p>
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <span>⏱️ 14 ساعة</span>
+                                    <span>يتطلب اشتراك</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-white border-2 border-gray-200 p-6 rounded-2xl flex flex-col">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-4xl">📱</span>
-                        <span class="px-3 py-1 bg-gray-200 text-gray-600 text-xs font-bold rounded-full">قريباً</span>
+                <!-- Pro Courses Section -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="bg-gradient-to-r from-primary-purple to-purple-700 text-white px-4 py-2 rounded-xl font-bold text-sm">👑 Pro</span>
+                        <h3 class="text-2xl font-bold text-dark-text">للمحترفين والخبراء</h3>
                     </div>
-                    <h3 class="text-[1.25rem] font-bold mb-2">التسويق الرقمي</h3>
-                    <p class="text-sm text-gray-600">استراتيجيات التسويق الحديثة</p>
-                </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Pro Course 1 -->
+                        <div class="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary-purple/20">
+                            <div class="h-3 bg-gradient-to-r from-primary-purple to-purple-700"></div>
+                            <div class="p-6">
+                                <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🤖</div>
+                                <h4 class="text-lg font-bold mb-2 text-dark-text">الذكاء الاصطناعي المتقدم</h4>
+                                <p class="text-sm text-gray-600 mb-4">أتقن أدوات AI لمضاعفة إنتاجيتك</p>
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <span>⏱️ 8 ساعات</span>
+                                    <span>يتطلب Pro</span>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="bg-white border-2 border-gray-200 p-6 rounded-2xl flex flex-col">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-4xl">📊</span>
-                        <span class="px-3 py-1 bg-gray-200 text-gray-600 text-xs font-bold rounded-full">قريباً</span>
+                        <!-- Pro Course 2 -->
+                        <div class="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary-purple/20">
+                            <div class="h-3 bg-gradient-to-r from-primary-purple to-purple-700"></div>
+                            <div class="p-6">
+                                <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">📊</div>
+                                <h4 class="text-lg font-bold mb-2 text-dark-text">تحليل البيانات</h4>
+                                <p class="text-sm text-gray-600 mb-4">حوّل البيانات إلى قرارات استراتيجية</p>
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <span>⏱️ 10 ساعات</span>
+                                    <span>يتطلب Pro</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-[1.25rem] font-bold mb-2">تحليل البيانات</h3>
-                    <p class="text-sm text-gray-600">حوّل البيانات إلى قرارات</p>
-                </div>
-
-                <div class="bg-white border-2 border-gray-200 p-6 rounded-2xl flex flex-col">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-4xl">💡</span>
-                        <span class="px-3 py-1 bg-gray-200 text-gray-600 text-xs font-bold rounded-full">قريباً</span>
-                    </div>
-                    <h3 class="text-[1.25rem] font-bold mb-2">ريادة الأعمال</h3>
-                    <p class="text-sm text-gray-600">ابنِ مشروعك الرقمي الخاص</p>
-                </div>
-
-                <div class="bg-white border-2 border-gray-200 p-6 rounded-2xl flex flex-col">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-4xl">🚀</span>
-                        <span class="px-3 py-1 bg-gray-200 text-gray-600 text-xs font-bold rounded-full">قريباً</span>
-                    </div>
-                    <h3 class="text-[1.25rem] font-bold mb-2">العمل الحر</h3>
-                    <p class="text-sm text-gray-600">احترف Freelancing بشكل صحيح</p>
                 </div>
             </div>
 
-            <div class="text-center mt-12">
-                <a href="courses.html" class="inline-block px-8 py-4 bg-primary-purple text-white text-base font-bold rounded-xl hover:bg-primary-purple/90 transition">
-                    عرض جميع الدورات بالتفصيل
+            <!-- CTA Button -->
+            <div class="text-center">
+                <a href="courses.html" class="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-primary-purple to-primary-orange text-white text-lg font-bold rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                    <span>عرض جميع الدورات</span>
+                    <span class="text-2xl">→</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Social Proof - Real Testimonials -->
-    <section class="py-20 bg-gradient-to-br from-primary-purple to-primary-orange">
-        <div class="container mx-auto px-4 max-w-6xl text-center">
-            <h2 class="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-black text-white mb-4">ماذا يقول طلابنا؟</h2>
-            <p class="text-base lg:text-xl text-white/90 mb-12">نتائج حقيقية من أشخاص حقيقيين</p>
+    <!-- Enhanced Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-12">
+                <h2 class="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-black text-dark-text mb-4">ماذا يقول طلابنا؟ 🌟</h2>
+                <p class="text-base lg:text-xl text-gray-600">نتائج حقيقية وقصص نجاح ملهمة من متعلمين حققوا أهدافهم معنا</p>
+            </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl card-shadow">
+            <!-- Featured Video Testimonial -->
+            <div class="mb-12 max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-primary-purple/10 to-primary-orange/10 rounded-3xl p-2">
+                    <div class="bg-white rounded-2xl p-8 lg:p-10">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <div class="relative bg-gradient-to-br from-primary-purple/20 to-primary-orange/20 aspect-video rounded-2xl flex items-center justify-center mb-4">
+                                    <div class="text-center">
+                                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                            <span class="text-4xl">▶️</span>
+                                        </div>
+                                        <p class="text-gray-600 font-semibold">شاهد قصة نجاح محمد</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center mb-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-primary-orange to-primary-purple rounded-full flex items-center justify-center text-white font-bold text-2xl ml-4">
+                                        م
+                                    </div>
+                                    <div class="text-right">
+                                        <h4 class="font-bold text-xl">محمد الصالح</h4>
+                                        <p class="text-sm text-gray-500">مطور ويب مستقل</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-lg leading-relaxed mb-4">"من موظف براتب محدود إلى freelancer ناجح! دورة بناء المواقع بالذكاء الاصطناعي غيّرت حياتي تماماً. الآن أكسب 3 أضعاف راتبي السابق."</p>
+                                <div class="flex items-center gap-2 text-sm text-gray-600">
+                                    <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                                    <span>تقييم 5/5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-10">
+                <div class="bg-white p-6 rounded-2xl card-shadow hover:shadow-xl transition-shadow">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-primary-orange to-primary-purple rounded-full flex items-center justify-center text-white font-bold text-xl ml-4">
                             س
                         </div>
                         <div class="text-right">
-                            <h4 class="font-bold text-[1.25rem]">سارة م.</h4>
+                            <h4 class="font-bold">سارة م.</h4>
                             <p class="text-sm text-gray-500">مطورة مواقع</p>
                         </div>
                     </div>
-                    <p class="text-base text-gray-700">"من صفر معرفة بالبرمجة إلى موقعي الأول في 90 دقيقة! دورة عملية ومباشرة."</p>
+                    <div class="mb-3">
+                        <span class="text-yellow-500 text-sm">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-gray-700">"من صفر معرفة بالبرمجة إلى موقعي الأول في 90 دقيقة! دورة عملية ومباشرة."</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl card-shadow">
+                <div class="bg-white p-6 rounded-2xl card-shadow hover:shadow-xl transition-shadow">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-primary-purple to-primary-orange rounded-full flex items-center justify-center text-white font-bold text-xl ml-4">
                             أ
                         </div>
                         <div class="text-right">
-                            <h4 class="font-bold text-[1.25rem]">أحمد ك.</h4>
+                            <h4 class="font-bold">أحمد ك.</h4>
                             <p class="text-sm text-gray-500">مستقل</p>
                         </div>
                     </div>
-                    <p class="text-base text-gray-700">"بفضل دورة AI حصلت على أول 3 عملاء في أسبوعين. استثمار يستحق كل قرش!"</p>
+                    <div class="mb-3">
+                        <span class="text-yellow-500 text-sm">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-gray-700">"بفضل دورة AI حصلت على أول 3 عملاء في أسبوعين. استثمار يستحق كل قرش!"</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl card-shadow">
+                <div class="bg-white p-6 rounded-2xl card-shadow hover:shadow-xl transition-shadow">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-primary-orange to-primary-purple rounded-full flex items-center justify-center text-white font-bold text-xl ml-4">
                             ل
                         </div>
                         <div class="text-right">
-                            <h4 class="font-bold text-[1.25rem]">ليلى ر.</h4>
+                            <h4 class="font-bold">ليلى ر.</h4>
                             <p class="text-sm text-gray-500">رائدة أعمال</p>
                         </div>
                     </div>
-                    <p class="text-base text-gray-700">"أطلقت موقع متجري الإلكتروني بنفسي. وفّرت آلاف الدنانير على المطورين!"</p>
+                    <div class="mb-3">
+                        <span class="text-yellow-500 text-sm">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-gray-700">"أطلقت موقع متجري الإلكتروني بنفسي. وفّرت آلاف الدنانير على المطورين!"</p>
                 </div>
+            </div>
+
+            <!-- Read More Button -->
+            <div class="text-center">
+                <a href="testimonials.html" class="inline-block px-10 py-4 bg-gradient-to-r from-primary-purple to-primary-orange text-white text-base font-bold rounded-xl hover:shadow-2xl transition transform hover:scale-105">
+                    اقرأ المزيد من قصص النجاح →
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="py-20 bg-dark-text text-white">
-        <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h2 class="text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-black mb-6">جاهز للبدء؟</h2>
-            <p class="text-base lg:text-xl text-gray-300 mb-10 leading-relaxed">
-                استكشف دوراتنا واختر ما يناسب أهدافك
+    <!-- Pricing Preview -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl text-center">
+            <h2 class="text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-black text-dark-text mb-6">خطط اشتراك مرنة</h2>
+            <p class="text-base lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                اختر الخطة المناسبة لك واستمتع بوصول غير محدود لآلاف الدورات
             </p>
             
-            <a href="courses.html" class="inline-block px-8 py-3 bg-primary-orange text-white text-base font-bold rounded-lg hover:bg-primary-hover transition">
-                استكشف الدورات
+            <!-- Billing Toggle -->
+            <div class="flex items-center justify-center gap-4 mb-12">
+                <span class="text-lg font-semibold text-gray-700" id="monthly-label-preview">شهري</span>
+                <label class="relative inline-block w-16 h-8 cursor-pointer">
+                    <input type="checkbox" id="billing-toggle-preview" class="peer opacity-0 w-0 h-0">
+                    <span class="absolute inset-0 bg-gray-300 rounded-full transition-all duration-300 peer-checked:bg-primary-orange"></span>
+                    <span class="absolute top-1 right-1 w-6 h-6 bg-white rounded-full transition-all duration-300 peer-checked:translate-x-8 shadow-md"></span>
+                </label>
+                <span class="text-lg font-semibold text-gray-700" id="yearly-label-preview">سنوي</span>
+                <span class="bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-full">وفّر 15%</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">🆓</div>
+                    <h3 class="text-2xl font-bold mb-2">مجانية</h3>
+                    <div class="text-4xl font-black text-dark-text mb-4">
+                        <span class="monthly-price-preview">0</span>
+                        <span class="yearly-price-preview hidden">0</span>
+                        <span class="text-xl"> د.ت</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        <span class="monthly-price-preview">دورات مجانية فقط</span>
+                        <span class="yearly-price-preview hidden">دورات مجانية فقط</span>
+                    </p>
+                    <a href="courses.html" class="block px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-bold hover:bg-gray-300 transition">
+                        ابدأ مجاناً
+                    </a>
+                </div>
+                
+                <div class="bg-gradient-to-br from-primary-orange to-orange-600 rounded-2xl p-8 text-white transform scale-105 hover:scale-110 transition shadow-xl">
+                    <div class="bg-white text-primary-orange px-3 py-1 rounded-full text-xs font-bold inline-block mb-2">الأكثر شعبية</div>
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-bold mb-2">بريميوم</h3>
+                    <div class="text-4xl font-black mb-4">
+                        <span class="monthly-price-preview">50</span>
+                        <span class="yearly-price-preview hidden">510</span>
+                        <span class="text-xl"> د.ت</span>
+                    </div>
+                    <p class="text-white/90 mb-6">
+                        <span class="monthly-price-preview">شهرياً</span>
+                        <span class="yearly-price-preview hidden">سنوياً (وفّر 90 د.ت)</span>
+                    </p>
+                    <a href="pricing.html" class="block px-6 py-3 bg-white text-primary-orange rounded-xl font-bold hover:bg-gray-100 transition">
+                        اشترك الآن
+                    </a>
+                </div>
+                
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition border-2 border-primary-purple">
+                    <div class="text-5xl mb-4">👑</div>
+                    <h3 class="text-2xl font-bold mb-2">برو</h3>
+                    <div class="text-4xl font-black text-dark-text mb-4">
+                        <span class="monthly-price-preview">80</span>
+                        <span class="yearly-price-preview hidden">816</span>
+                        <span class="text-xl"> د.ت</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        <span class="monthly-price-preview">شهرياً</span>
+                        <span class="yearly-price-preview hidden">سنوياً (وفّر 144 د.ت)</span>
+                    </p>
+                    <a href="pricing.html" class="block px-6 py-3 bg-gradient-to-r from-primary-purple to-primary-orange text-white rounded-xl font-bold hover:shadow-xl transition">
+                        اشترك في برو
+                    </a>
+                </div>
+            </div>
+            
+            <a href="pricing.html" class="inline-block px-8 py-3 bg-dark-text text-white text-base font-bold rounded-lg hover:bg-gray-800 transition">
+                عرض جميع الخطط والمزايا ←
             </a>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="py-24 bg-gradient-to-br from-primary-purple to-primary-orange">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-extrabold text-white mb-4">لديك أسئلة؟ تواصل معنا 💬</h2>
+                <p class="text-base lg:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+                    فريقنا جاهز للإجابة على جميع استفساراتك ومساعدتك في اختيار الدورة المناسبة
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-8 lg:p-12 card-shadow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Phone -->
+                    <a href="tel:+21612345678" class="flex items-center gap-4 p-6 bg-gradient-to-br from-primary-orange/10 to-primary-orange/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📞</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">اتصل بنا</h3>
+                            <p class="text-primary-orange font-semibold group-hover:underline">+216 12 345 678</p>
+                        </div>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/21612345678" target="_blank" class="flex items-center gap-4 p-6 bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">💬</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">واتساب</h3>
+                            <p class="text-green-600 font-semibold group-hover:underline">+216 12 345 678</p>
+                        </div>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:info@wijha-academy.com" class="flex items-center gap-4 p-6 bg-gradient-to-br from-primary-purple/10 to-primary-purple/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📧</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">البريد الإلكتروني</h3>
+                            <p class="text-primary-purple font-semibold group-hover:underline">info@wijha-academy.com</p>
+                        </div>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/wijha.academy" target="_blank" class="flex items-center gap-4 p-6 bg-gradient-to-br from-pink-500/10 to-pink-500/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📸</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">إنستغرام</h3>
+                            <p class="text-pink-600 font-semibold group-hover:underline">@wijha.academy</p>
+                        </div>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="https://facebook.com/wijha.academy" target="_blank" class="flex items-center gap-4 p-6 bg-gradient-to-br from-blue-600/10 to-blue-600/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📘</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">فيسبوك</h3>
+                            <p class="text-blue-600 font-semibold group-hover:underline">Wijha Academy</p>
+                        </div>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/company/wijha-academy" target="_blank" class="flex items-center gap-4 p-6 bg-gradient-to-br from-blue-700/10 to-blue-700/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">💼</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">لينكد إن</h3>
+                            <p class="text-blue-700 font-semibold group-hover:underline">Wijha Academy</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="text-center mt-10">
+                    <a href="pricing.html" class="inline-block px-10 py-4 bg-gradient-to-r from-primary-purple to-primary-orange text-white text-lg font-bold rounded-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                        ✅ سجّل الآن وابدأ التعلم
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -419,14 +752,36 @@
                     <p class="text-gray-500 text-xs mt-1">جميع الحقوق محفوظة</p>
                 </div>
                 
-                <div class="flex gap-4">
+                <div class="flex flex-wrap gap-4 justify-center">
                     <a href="index.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الرئيسية</a>
                     <a href="courses.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الدورات</a>
+                    <a href="pricing.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الأسعار</a>
                     <a href="testimonials.html" class="text-gray-400 hover:text-primary-orange transition text-sm">آراء الطلاب</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Pricing Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('billing-toggle-preview');
+            const monthlyPrices = document.querySelectorAll('.monthly-price-preview');
+            const yearlyPrices = document.querySelectorAll('.yearly-price-preview');
+            
+            toggle.addEventListener('change', function() {
+                if (this.checked) {
+                    // Show yearly prices
+                    monthlyPrices.forEach(el => el.classList.add('hidden'));
+                    yearlyPrices.forEach(el => el.classList.remove('hidden'));
+                } else {
+                    // Show monthly prices
+                    monthlyPrices.forEach(el => el.classList.remove('hidden'));
+                    yearlyPrices.forEach(el => el.classList.add('hidden'));
+                }
+            });
+        });
+    </script>
 
     <!-- Chat Widget -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

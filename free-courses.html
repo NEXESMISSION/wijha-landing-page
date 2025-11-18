@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدورات المجانية - أكاديمية وجهة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(22, 22, 22, 0.05);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .floating-badge {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-orange': '#F48434',
+                        'primary-purple': '#7C34D9',
+                        'primary-hover': '#e0742f',
+                        'secondary-gray': '#e5e7eb',
+                        'accent-light': '#fdf2e8',
+                        'dark-text': '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- Header / NavBar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center hover:opacity-80 transition">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="أكاديمية وجهة" class="h-14 w-auto">
+                </a>
+                
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">الرئيسية</a>
+                    <a href="courses.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">جميع الدورات</a>
+                    <a href="free-courses.html" class="text-primary-orange hover:text-primary-hover font-semibold transition">الدورات المجانية</a>
+                    <a href="testimonials.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">آراء الطلاب</a>
+                    <a href="course-ai-websites.html" class="px-6 py-3 bg-primary-orange text-white rounded-lg hover:bg-primary-hover font-bold transition">سجّل الآن</a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-3">
+                <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">الرئيسية</a>
+                <a href="courses.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">جميع الدورات</a>
+                <a href="free-courses.html" class="block px-4 py-2 bg-accent-light text-primary-orange rounded-lg transition font-semibold">الدورات المجانية</a>
+                <a href="testimonials.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">آراء الطلاب</a>
+                <a href="course-ai-websites.html" class="block px-4 py-2 bg-primary-orange text-white rounded-lg hover:bg-primary-hover transition font-bold text-center">سجّل الآن</a>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 bg-gradient-to-br from-green-500 via-green-600 to-emerald-700 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 text-8xl">🎓</div>
+            <div class="absolute top-20 right-20 text-6xl">📚</div>
+            <div class="absolute bottom-10 left-1/4 text-7xl">✨</div>
+            <div class="absolute bottom-20 right-1/3 text-5xl">🎉</div>
+        </div>
+        <div class="container mx-auto px-4 max-w-7xl text-center relative z-10">
+            <div class="inline-block mb-6">
+                <span class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm md:text-base font-bold floating-badge">
+                    🎁 100% مجاناً - بدون أي رسوم!
+                </span>
+            </div>
+            <h1 class="text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-extrabold mb-6 leading-tight">الدورات التدريبية المجانية</h1>
+            <p class="text-base lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                ابدأ رحلة التعلم اليوم مع مجموعة مختارة من الدورات المجانية عالية الجودة. تعلّم مهارات جديدة بدون أي تكلفة!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#courses-grid" class="inline-block px-8 py-3 bg-white text-green-600 text-base font-bold rounded-xl hover:bg-gray-100 transition transform hover:scale-105 shadow-xl">
+                    🚀 تصفح الدورات المجانية
+                </a>
+                <a href="courses.html" class="inline-block px-8 py-3 bg-white/10 backdrop-blur-sm text-white text-base font-bold rounded-xl hover:bg-white/20 transition border-2 border-white/30">
+                    عرض جميع الدورات ←
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Courses Grid -->
+    <section id="courses-grid" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            
+            <div class="mb-12 text-center">
+                <h2 class="text-[1.75rem] md:text-[2.25rem] lg:text-[2.75rem] font-extrabold text-dark-text mb-4">الدورات المجانية المتاحة</h2>
+                <p class="text-base text-gray-600 mb-8 max-w-2xl mx-auto">اختر من بين مجموعة متنوعة من الدورات المجانية وابدأ التعلم فوراً</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Free Course 1: Introduction to AI -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/6366F1/ffffff?text=AI+Basics" 
+                             alt="مقدمة في الذكاء الاصطناعي"
+                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">مجاني 🎁</div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">⭐ 4.9</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-3xl">🤖</span>
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-semibold">مبتدئ</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark-text">مقدمة في الذكاء الاصطناعي</h3>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            تعلم أساسيات الذكاء الاصطناعي وكيف يمكن استخدامه في حياتك اليومية وعملك. دورة مثالية للمبتدئين.
+                        </p>
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><span>⏱️</span><span>2.5 ساعة</span></span>
+                            <span class="flex items-center gap-1"><span>👥</span><span>1,245 طالب</span></span>
+                        </div>
+                        <button class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:from-green-600 hover:to-emerald-700 transition transform hover:scale-105 shadow-md">
+                            ابدأ التعلم مجاناً →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Free Course 2: Web Design Basics -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/EC4899/ffffff?text=Web+Design" alt="أساسيات تصميم المواقع" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">مجاني 🎁</div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">⭐ 4.8</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-3xl">🎨</span>
+                            <span class="text-xs bg-pink-100 text-pink-700 px-3 py-1 rounded-full font-semibold">مبتدئ</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark-text">أساسيات تصميم المواقع</h3>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            اكتشف مبادئ تصميم المواقع الحديثة وتعلم كيفية إنشاء تصاميم جذابة وسهلة الاستخدام.
+                        </p>
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><span>⏱️</span><span>3 ساعات</span></span>
+                            <span class="flex items-center gap-1"><span>👥</span><span>892 طالب</span></span>
+                        </div>
+                        <button class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:from-green-600 hover:to-emerald-700 transition transform hover:scale-105 shadow-md">
+                            ابدأ التعلم مجاناً →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Free Course 3: Social Media Marketing -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/F59E0B/ffffff?text=Social+Media" alt="التسويق عبر وسائل التواصل" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">مجاني 🎁</div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">⭐ 4.7</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-3xl">📱</span>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-semibold">متوسط</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark-text">التسويق عبر وسائل التواصل</h3>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            تعلم استراتيجيات التسويق الفعالة على فيسبوك وإنستغرام وتيك توك لتنمية علامتك التجارية.
+                        </p>
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><span>⏱️</span><span>4 ساعات</span></span>
+                            <span class="flex items-center gap-1"><span>👥</span><span>2,103 طالب</span></span>
+                        </div>
+                        <button class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:from-green-600 hover:to-emerald-700 transition transform hover:scale-105 shadow-md">
+                            ابدأ التعلم مجاناً →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Free Course 4: Excel for Beginners -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/10B981/ffffff?text=Excel+Basics" alt="إكسل للمبتدئين" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">مجاني 🎁</div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">⭐ 4.9</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-3xl">📊</span>
+                            <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-semibold">مبتدئ</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark-text">إكسل للمبتدئين</h3>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            أتقن أساسيات برنامج Excel من الصفر - الجداول، المعادلات، الرسوم البيانية والمزيد.
+                        </p>
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><span>⏱️</span><span>3.5 ساعة</span></span>
+                            <span class="flex items-center gap-1"><span>👥</span><span>1,678 طالب</span></span>
+                        </div>
+                        <button class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:from-green-600 hover:to-emerald-700 transition transform hover:scale-105 shadow-md">
+                            ابدأ التعلم مجاناً →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Free Course 5: Content Writing -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/8B5CF6/ffffff?text=Content+Writing" alt="كتابة المحتوى الإبداعي" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">مجاني 🎁</div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">⭐ 4.8</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-3xl">✍️</span>
+                            <span class="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full font-semibold">مبتدئ</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark-text">كتابة المحتوى الإبداعي</h3>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            طوّر مهاراتك في كتابة المحتوى الجذاب والمؤثر للمدونات ووسائل التواصل الاجتماعي.
+                        </p>
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><span>⏱️</span><span>2 ساعة</span></span>
+                            <span class="flex items-center gap-1"><span>👥</span><span>756 طالب</span></span>
+                        </div>
+                        <button class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:from-green-600 hover:to-emerald-700 transition transform hover:scale-105 shadow-md">
+                            ابدأ التعلم مجاناً →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Free Course 6: Photography Basics -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/EF4444/ffffff?text=Photography" alt="أساسيات التصوير الفوتوغرافي" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">مجاني 🎁</div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">⭐ 4.9</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-3xl">📸</span>
+                            <span class="text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full font-semibold">مبتدئ</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark-text">أساسيات التصوير الفوتوغرافي</h3>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            تعلم كيفية التقاط صور احترافية باستخدام هاتفك أو كاميرتك. مناسب للمبتدئين تماماً.
+                        </p>
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><span>⏱️</span><span>3 ساعات</span></span>
+                            <span class="flex items-center gap-1"><span>👥</span><span>1,432 طالب</span></span>
+                        </div>
+                        <button class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:from-green-600 hover:to-emerald-700 transition transform hover:scale-105 shadow-md">
+                            ابدأ التعلم مجاناً →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Free Course 7: Time Management -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/3B82F6/ffffff?text=Time+Management" alt="إدارة الوقت" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">مجاني 🎁</div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">⭐ 4.7</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-3xl">⏳</span>
+                            <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-semibold">مبتدئ</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark-text">إدارة الوقت والإنتاجية</h3>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            تعلم تقنيات فعالة لإدارة وقتك وزيادة إنتاجيتك في العمل والحياة الشخصية.
+                        </p>
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><span>⏱️</span><span>1.5 ساعة</span></span>
+                            <span class="flex items-center gap-1"><span>👥</span><span>2,587 طالب</span></span>
+                        </div>
+                        <button class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:from-green-600 hover:to-emerald-700 transition transform hover:scale-105 shadow-md">
+                            ابدأ التعلم مجاناً →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Free Course 8: Graphic Design Intro -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/F472B6/ffffff?text=Graphic+Design" alt="مقدمة في التصميم الجرافيكي" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">مجاني 🎁</div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">⭐ 4.8</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-3xl">🎭</span>
+                            <span class="text-xs bg-pink-100 text-pink-700 px-3 py-1 rounded-full font-semibold">مبتدئ</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark-text">مقدمة في التصميم الجرافيكي</h3>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            ابدأ رحلتك في عالم التصميم الجرافيكي وتعلم أساسيات الألوان والتايبوجرافي والتكوين.
+                        </p>
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><span>⏱️</span><span>2.5 ساعة</span></span>
+                            <span class="flex items-center gap-1"><span>👥</span><span>1,129 طالب</span></span>
+                        </div>
+                        <button class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:from-green-600 hover:to-emerald-700 transition transform hover:scale-105 shadow-md">
+                            ابدأ التعلم مجاناً →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Free Course 9: Public Speaking -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/14B8A6/ffffff?text=Public+Speaking" alt="فن الخطابة والإلقاء" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">مجاني 🎁</div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">⭐ 4.9</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-3xl">🎤</span>
+                            <span class="text-xs bg-teal-100 text-teal-700 px-3 py-1 rounded-full font-semibold">متوسط</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark-text">فن الخطابة والإلقاء</h3>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            طوّر مهاراتك في التحدث أمام الجمهور وتعلم كيفية إلقاء عروض تقديمية مؤثرة وواثقة.
+                        </p>
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><span>⏱️</span><span>3 ساعات</span></span>
+                            <span class="flex items-center gap-1"><span>👥</span><span>978 طالب</span></span>
+                        </div>
+                        <button class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:from-green-600 hover:to-emerald-700 transition transform hover:scale-105 shadow-md">
+                            ابدأ التعلم مجاناً →
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gradient-to-br from-primary-purple to-primary-orange">
+        <div class="container mx-auto px-4 max-w-5xl text-center">
+            <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border-2 border-white/30">
+                <h2 class="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-extrabold text-white mb-4">
+                    هل أنت مستعد لبدء التعلم؟
+                </h2>
+                <p class="text-base lg:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    سجّل الآن في دوراتنا المدفوعة للحصول على محتوى متقدم، دعم شخصي، ومشاريع عملية
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="course-ai-websites.html" class="inline-block px-10 py-4 bg-white text-primary-purple text-base font-bold rounded-xl hover:bg-gray-100 transition transform hover:scale-105 shadow-xl">
+                        🚀 اشترك في الدورات المدفوعة
+                    </a>
+                    <a href="courses.html" class="inline-block px-10 py-4 bg-white/10 backdrop-blur-sm text-white text-base font-bold rounded-xl hover:bg-white/20 transition border-2 border-white/30">
+                        عرض جميع الدورات
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-extrabold text-dark-text mb-4">لديك أسئلة؟ تواصل معنا 💬</h2>
+                <p class="text-base lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    فريقنا جاهز للإجابة على جميع استفساراتك ومساعدتك في اختيار الدورة المناسبة
+                </p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 lg:p-12 card-shadow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <a href="tel:+21612345678" class="flex items-center gap-4 p-6 bg-gradient-to-br from-primary-orange/10 to-primary-orange/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📞</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">اتصل بنا</h3>
+                            <p class="text-primary-orange font-semibold group-hover:underline">+216 12 345 678</p>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/21612345678" target="_blank" class="flex items-center gap-4 p-6 bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">💬</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">واتساب</h3>
+                            <p class="text-green-600 font-semibold group-hover:underline">+216 12 345 678</p>
+                        </div>
+                    </a>
+
+                    <a href="mailto:info@wijha-academy.com" class="flex items-center gap-4 p-6 bg-gradient-to-br from-primary-purple/10 to-primary-purple/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📧</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">البريد الإلكتروني</h3>
+                            <p class="text-primary-purple font-semibold group-hover:underline">info@wijha-academy.com</p>
+                        </div>
+                    </a>
+
+                    <a href="https://instagram.com/wijha.academy" target="_blank" class="flex items-center gap-4 p-6 bg-gradient-to-br from-pink-500/10 to-pink-500/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📸</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">إنستغرام</h3>
+                            <p class="text-pink-600 font-semibold group-hover:underline">@wijha.academy</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 lg:py-12 bg-dark-text text-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-right">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="أكاديمية وجهة" class="h-12 w-auto mx-auto md:mx-0 mb-3" style="filter: brightness(0) invert(1);">
+                    <p class="text-gray-400 text-sm">أكاديمية وجهة - مهارات المستقبل</p>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wijha Academy</p>
+                    <p class="text-gray-500 text-xs mt-1">جميع الحقوق محفوظة</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="index.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الرئيسية</a>
+                    <a href="courses.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الدورات</a>
+                    <a href="free-courses.html" class="text-gray-400 hover:text-primary-orange transition text-sm">دورات مجانية</a>
+                    <a href="pricing.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الأسعار</a>
+                    <a href="testimonials.html" class="text-gray-400 hover:text-primary-orange transition text-sm">آراء الطلاب</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#chatWidget").load("chat-widget.html");
+        });
+    </script>
+    <div id="chatWidget"></div>
+
+</body>
+</html>

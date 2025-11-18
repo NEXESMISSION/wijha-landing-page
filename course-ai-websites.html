@@ -119,8 +119,22 @@
 </head>
 <body class="text-gray-800 antialiased">
 
-    <!-- رسالة التأكيد (بديل لـ alert) --><div id="enrollment-message" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 p-4 bg-green-500 text-white rounded-lg shadow-xl hidden transition-opacity duration-300">
-        شكراً لتسجيلك! سيتم توجيهك الآن إلى صفحة الدفع لإتمام عملية الشراء.
+    <!-- Custom Alert -->
+    <div id="customAlert" class="fixed top-8 left-1/2 transform -translate-x-1/2 z-[60] hidden transition-all duration-500 ease-out">
+        <div class="bg-white rounded-2xl shadow-2xl p-6 min-w-[320px] max-w-md border-t-4" id="alertBox">
+            <div class="flex items-start gap-4">
+                <div id="alertIcon" class="text-4xl flex-shrink-0"></div>
+                <div class="flex-1">
+                    <h3 id="alertTitle" class="font-bold text-lg mb-1"></h3>
+                    <p id="alertMessage" class="text-gray-600 text-sm leading-relaxed"></p>
+                </div>
+                <button onclick="closeCustomAlert()" class="text-gray-400 hover:text-gray-600 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
 
     <!-- الشريط العلوي (NavBar) -->
@@ -408,6 +422,59 @@
         // Google Sheets Web App URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwwwiUE_xC2mK4kbJS3Cgp_D-F-YCikyTA0_jio65DZ4eimCjRUisg7rgafaFTcpAKJkA/exec';
 
+        // Custom Alert Function
+        function showCustomAlert(title, message, type = 'success') {
+            const alertElement = document.getElementById('customAlert');
+            const alertBox = document.getElementById('alertBox');
+            const alertIcon = document.getElementById('alertIcon');
+            const alertTitle = document.getElementById('alertTitle');
+            const alertMessage = document.getElementById('alertMessage');
+            
+            // Set content
+            alertTitle.textContent = title;
+            alertMessage.textContent = message;
+            
+            // Set style based on type
+            if (type === 'success') {
+                alertBox.className = 'bg-white rounded-2xl shadow-2xl p-6 min-w-[320px] max-w-md border-t-4 border-green-500';
+                alertIcon.textContent = '✅';
+                alertTitle.className = 'font-bold text-lg mb-1 text-green-600';
+            } else if (type === 'error') {
+                alertBox.className = 'bg-white rounded-2xl shadow-2xl p-6 min-w-[320px] max-w-md border-t-4 border-red-500';
+                alertIcon.textContent = '❌';
+                alertTitle.className = 'font-bold text-lg mb-1 text-red-600';
+            } else if (type === 'info') {
+                alertBox.className = 'bg-white rounded-2xl shadow-2xl p-6 min-w-[320px] max-w-md border-t-4 border-primary-purple';
+                alertIcon.textContent = 'ℹ️';
+                alertTitle.className = 'font-bold text-lg mb-1 text-primary-purple';
+            }
+            
+            // Show alert with animation
+            alertElement.classList.remove('hidden');
+            setTimeout(() => {
+                alertElement.style.opacity = '0';
+                alertElement.style.transform = 'translate(-50%, -20px)';
+                setTimeout(() => {
+                    alertElement.style.opacity = '1';
+                    alertElement.style.transform = 'translate(-50%, 0)';
+                }, 50);
+            }, 10);
+            
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                closeCustomAlert();
+            }, 5000);
+        }
+        
+        function closeCustomAlert() {
+            const alertElement = document.getElementById('customAlert');
+            alertElement.style.opacity = '0';
+            alertElement.style.transform = 'translate(-50%, -20px)';
+            setTimeout(() => {
+                alertElement.classList.add('hidden');
+            }, 300);
+        }
+
         // Form submission and toggle handler
         document.addEventListener('DOMContentLoaded', () => {
             // Toggle other payment method
@@ -461,13 +528,13 @@
                         });
                         
                         // With no-cors, we can't read the response, so assume success
-                        alert('✅ شكراً لتسجيلك! تم إرسال طلبك بنجاح. سنتواصل معك قريباً.');
+                        showCustomAlert('تم بنجاح! 🎉', 'شكراً لتسجيلك! تم إرسال طلبك بنجاح. سنتواصل معك قريباً.', 'success');
                         this.reset();
                         document.getElementById('otherPaymentDiv').classList.add('hidden');
                         
                     } catch (error) {
                         console.error('Error:', error);
-                        alert('❌ عذراً، حدث خطأ. يرجى التواصل معنا عبر واتساب: +216 12 345 678');
+                        showCustomAlert('حدث خطأ', 'عذراً، حدث خطأ. يرجى التواصل معنا عبر واتساب: +216 12 345 678', 'error');
                     } finally {
                         submitButton.disabled = false;
                         submitButton.innerHTML = originalButtonText;
