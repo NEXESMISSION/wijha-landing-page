@@ -151,6 +151,7 @@
                 <!-- Menu -->
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#about" class="text-gray-700 hover:text-primary-orange font-semibold transition">من نحن</a>
+                    <a href="testimonials.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">آراء الطلاب</a>
                     <a href="courses.html" class="px-6 py-3 bg-primary-orange text-white rounded-lg hover:bg-primary-hover font-bold transition">
                         تصفح الدورات
                     </a>
@@ -167,6 +168,7 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-3">
                 <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">من نحن</a>
+                <a href="testimonials.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">آراء الطلاب</a>
                 <a href="courses.html" class="block px-4 py-2 bg-primary-orange text-white rounded-lg hover:bg-primary-hover transition font-bold text-center">تصفح الدورات</a>
             </div>
         </div>
@@ -194,7 +196,7 @@
                 </span>
                 
                 <h1 class="text-[2.5rem] md:text-[3rem] lg:text-[4rem] font-black text-dark-text mb-6 leading-tight glass-effect">
-                    نُمكّن الأفراد بمهارات <span class="text-primary-purple">المستقبل</span>
+                    اصنع مستقبلك بمهارات <span class="text-primary-purple">اليوم</span>
                 </h1>
                 
                 <p class="text-base lg:text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
@@ -279,7 +281,7 @@
                         </div>
                         <h3 class="text-[1.25rem] font-bold mb-2">تطوير المواقع بالAI</h3>
                         <p class="text-sm text-gray-600 mb-4 flex-grow">ابنِ مواقع احترافية بدون برمجة</p>
-                        <a href="course-ai-websites.html" class="text-sm text-primary-orange font-bold hover:underline">
+                        <a href="course-ai-websites.html" class="inline-block w-full px-4 py-2 bg-primary-orange text-white text-sm font-bold rounded-lg hover:bg-primary-hover transition text-center">
                             عرض التفاصيل ←
                         </a>
                     </div>
@@ -403,45 +405,37 @@
         </div>
     </section>
 
-    <!-- Footer - Minimal & Clean -->
-    <footer class="py-12 bg-gray-900 text-white">
+    <!-- Footer -->
+    <footer class="py-8 lg:py-12 bg-dark-text text-white">
         <div class="container mx-auto px-4 max-w-7xl">
-            <div class="grid md:grid-cols-3 gap-10 mb-10">
-                <div>
-                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="وجهة" class="h-12 mb-4">
-                    <p class="text-gray-400">أكاديمية عملية لمهارات المستقبل</p>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-right">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="أكاديمية وجهة" class="h-12 w-auto mx-auto md:mx-0 mb-3" style="filter: brightness(0) invert(1);">
+                    <p class="text-gray-400 text-sm">أكاديمية وجهة - مهارات المستقبل</p>
                 </div>
-
-                <div>
-                    <h3 class="font-bold mb-4 text-primary-orange">روابط سريعة</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#about" class="hover:text-white transition">من نحن</a></li>
-                        <li><a href="courses.html" class="hover:text-white transition">جميع الدورات</a></li>
-                        <li><a href="#" class="hover:text-white transition">تواصل معنا</a></li>
-                    </ul>
+                
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wijha Academy</p>
+                    <p class="text-gray-500 text-xs mt-1">جميع الحقوق محفوظة</p>
                 </div>
-
-                <div>
-                    <h3 class="font-bold mb-4 text-primary-orange">تابعنا</h3>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary-orange rounded-full flex items-center justify-center transition">
-                            <span>📘</span>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary-orange rounded-full flex items-center justify-center transition">
-                            <span>📸</span>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary-orange rounded-full flex items-center justify-center transition">
-                            <span>💼</span>
-                        </a>
-                    </div>
+                
+                <div class="flex gap-4">
+                    <a href="index.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الرئيسية</a>
+                    <a href="courses.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الدورات</a>
+                    <a href="testimonials.html" class="text-gray-400 hover:text-primary-orange transition text-sm">آراء الطلاب</a>
                 </div>
-            </div>
-
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-                <p>&copy; 2025 أكاديمية وجهة. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Chat Widget -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#chatWidget").load("chat-widget.html");
+        });
+    </script>
+    <div id="chatWidget"></div>
 
 </body>
 </html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آراء الطلاب - أكاديمية وجهة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(22, 22, 22, 0.08);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-orange': '#F48434',
+                        'primary-purple': '#7C34D9',
+                        'primary-hover': '#e0742f',
+                        'accent-light': '#fdf2e8',
+                        'dark-text': '#1f2937',
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white fixed top-0 w-full z-50 shadow-sm">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="وجهة" class="h-14 w-auto">
+                </a>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">الرئيسية</a>
+                    <a href="courses.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">الدورات</a>
+                    <a href="testimonials.html" class="text-primary-orange font-semibold">آراء الطلاب</a>
+                    <a href="course-ai-websites.html#cta-section" class="px-6 py-3 bg-primary-orange text-white rounded-lg hover:bg-primary-hover font-bold transition">
+                        سجّل الآن
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-3">
+                <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">الرئيسية</a>
+                <a href="courses.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">الدورات</a>
+                <a href="testimonials.html" class="block px-4 py-2 bg-accent-light text-primary-orange rounded-lg font-semibold">آراء الطلاب</a>
+                <a href="course-ai-websites.html#cta-section" class="block px-4 py-2 bg-primary-orange text-white rounded-lg hover:bg-primary-hover transition font-bold text-center">سجّل الآن</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-primary-purple to-primary-orange text-white">
+        <div class="container mx-auto px-4 max-w-7xl text-center">
+            <h1 class="text-[2.5rem] md:text-[3rem] lg:text-[4rem] font-black mb-6 leading-tight">قصص نجاح طلابنا 🌟</h1>
+            <p class="text-base lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                استمع إلى تجارب حقيقية من متعلمين حققوا أهدافهم وغيروا مسارهم المهني معنا
+            </p>
+            <div class="flex items-center justify-center gap-8 text-sm lg:text-base">
+                <div>
+                    <span class="text-3xl lg:text-4xl font-black">1200+</span>
+                    <p class="text-white/90">طالب راضٍ</p>
+                </div>
+                <div class="h-12 w-px bg-white/30"></div>
+                <div>
+                    <span class="text-3xl lg:text-4xl font-black">4.9/5</span>
+                    <p class="text-white/90">تقييم عام</p>
+                </div>
+                <div class="h-12 w-px bg-white/30"></div>
+                <div>
+                    <span class="text-3xl lg:text-4xl font-black">95%</span>
+                    <p class="text-white/90">معدل النجاح</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-black text-dark-text mb-4">شهادات فيديو حقيقية 🎥</h2>
+                <p class="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                    شاهد طلابنا وهم يشاركون رحلتهم وتجربتهم مع أكاديمية وجهة
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video Placeholder 1 -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+                    <div class="relative bg-gradient-to-br from-primary-orange/20 to-primary-orange/10 aspect-video flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4">🎬</div>
+                            <p class="text-gray-600 font-semibold">فيديو شهادة أحمد</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">أحمد المنصوري</h3>
+                        <p class="text-sm text-gray-600 mb-3">مطور مواقع مستقل</p>
+                        <p class="text-sm text-gray-700">"من صفر معرفة بالبرمجة إلى إطلاق 5 مواقع في شهر واحد!"</p>
+                    </div>
+                </div>
+
+                <!-- Video Placeholder 2 -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+                    <div class="relative bg-gradient-to-br from-primary-purple/20 to-primary-purple/10 aspect-video flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4">🎬</div>
+                            <p class="text-gray-600 font-semibold">فيديو شهادة سارة</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">سارة التونسية</h3>
+                        <p class="text-sm text-gray-600 mb-3">رائدة أعمال رقمية</p>
+                        <p class="text-sm text-gray-700">"أطلقت متجري الإلكتروني بنفسي ووفرت آلاف الدنانير!"</p>
+                    </div>
+                </div>
+
+                <!-- Video Placeholder 3 -->
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+                    <div class="relative bg-gradient-to-br from-green-500/20 to-green-500/10 aspect-video flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4">🎬</div>
+                            <p class="text-gray-600 font-semibold">فيديو شهادة محمد</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">محمد الكريم</h3>
+                        <p class="text-sm text-gray-600 mb-3">مصمم UI/UX</p>
+                        <p class="text-sm text-gray-700">"تعلمت مهارات الذكاء الاصطناعي التي ضاعفت إنتاجيتي 3 أضعاف!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Text Testimonials -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-black text-dark-text mb-4">ماذا يقول طلابنا؟ 💬</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial Cards -->
+                <div class="bg-white p-8 rounded-2xl card-shadow hover:scale-105 transition-transform">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/80x80/F48434/ffffff?text=AM" alt="أمينة" class="w-16 h-16 rounded-full ring-4 ring-primary-orange/20 ml-4">
+                        <div>
+                            <h4 class="font-bold text-lg">أمينة بن سالم</h4>
+                            <p class="text-sm text-gray-500">مديرة تسويق</p>
+                            <div class="flex gap-1 mt-1">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        "الدورة كانت مكثفة ومليئة بالقيمة! تعلمت كيف أبني موقع احترافي في أقل من ساعتين."
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl card-shadow hover:scale-105 transition-transform">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/80x80/7C34D9/ffffff?text=YB" alt="يوسف" class="w-16 h-16 rounded-full ring-4 ring-primary-purple/20 ml-4">
+                        <div>
+                            <h4 class="font-bold text-lg">يوسف البحيري</h4>
+                            <p class="text-sm text-gray-500">مستقل</p>
+                            <div class="flex gap-1 mt-1">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        "بفضل هذه الدورة، حصلت على أول 3 عملاء في أسبوعين! المحتوى عملي 100%."
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl card-shadow hover:scale-105 transition-transform">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/80x80/F48434/ffffff?text=LR" alt="ليلى" class="w-16 h-16 rounded-full ring-4 ring-primary-orange/20 ml-4">
+                        <div>
+                            <h4 class="font-bold text-lg">ليلى الرياحي</h4>
+                            <p class="text-sm text-gray-500">رائدة أعمال</p>
+                            <div class="flex gap-1 mt-1">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        "أطلقت موقع متجري الإلكتروني بنفسي ووفرت أكثر من 3000 دينار!"
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl card-shadow hover:scale-105 transition-transform">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/80x80/7C34D9/ffffff?text=KM" alt="كريم" class="w-16 h-16 rounded-full ring-4 ring-primary-purple/20 ml-4">
+                        <div>
+                            <h4 class="font-bold text-lg">كريم المهدي</h4>
+                            <p class="text-sm text-gray-500">مصمم جرافيك</p>
+                            <div class="flex gap-1 mt-1">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        "كمصمم، كنت أحتاج دائماً لمطور لتنفيذ أفكاري. الآن أستطيع بناء مواقع كاملة بنفسي!"
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl card-shadow hover:scale-105 transition-transform">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/80x80/F48434/ffffff?text=NZ" alt="نور" class="w-16 h-16 rounded-full ring-4 ring-primary-orange/20 ml-4">
+                        <div>
+                            <h4 class="font-bold text-lg">نور الزهراني</h4>
+                            <p class="text-sm text-gray-500">طالبة جامعية</p>
+                            <div class="flex gap-1 mt-1">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        "هذه الدورة فتحت لي أبواب عمل حر! الآن أكسب دخل إضافي وأنا أدرس."
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl card-shadow hover:scale-105 transition-transform">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/80x80/7C34D9/ffffff?text=HF" alt="حسام" class="w-16 h-16 rounded-full ring-4 ring-primary-purple/20 ml-4">
+                        <div>
+                            <h4 class="font-bold text-lg">حسام الفقيه</h4>
+                            <p class="text-sm text-gray-500">مدير مشاريع</p>
+                            <div class="flex gap-1 mt-1">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        "دورة عملية وواضحة بدون تعقيد. في 90 دقيقة تعلمت ما كنت أظن أنه يحتاج شهور."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-black text-dark-text mb-4">قصص نجاح ملهمة 🚀</h2>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Story 1 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="https://placehold.co/600x400/7C34D9/ffffff?text=Success+Story" alt="قصة نجاح" class="w-full rounded-2xl card-shadow">
+                    </div>
+                    <div>
+                        <span class="inline-block px-4 py-2 bg-primary-purple/10 text-primary-purple rounded-full text-sm font-bold mb-4">
+                            💼 من موظف إلى مستقل ناجح
+                        </span>
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4">عبد الرحمن - دخل شهري 2500 د.ت من العمل الحر</h3>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            كان عبد الرحمن يعمل موظفاً براتب ثابت، لكنه كان يحلم بالاستقلالية المالية. بعد إكمال دورة بناء المواقع، بدأ العمل الحر في المساء. في 6 أشهر فقط، أصبح دخله من العمل الحر يفوق راتبه الأساسي بمرتين!
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-semibold">+250% زيادة في الدخل</span>
+                            <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-semibold">12 مشروع منجز</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="md:order-2">
+                        <img src="https://placehold.co/600x400/F48434/ffffff?text=Success+Story" alt="قصة نجاح" class="w-full rounded-2xl card-shadow">
+                    </div>
+                    <div class="md:order-1">
+                        <span class="inline-block px-4 py-2 bg-primary-orange/10 text-primary-orange rounded-full text-sm font-bold mb-4">
+                            🏢 من فكرة إلى شركة ناشئة
+                        </span>
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4">فاطمة - أسست وكالة تطوير مواقع</h3>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            بدأت فاطمة بتعلم بناء المواقع للحاجة الشخصية فقط. لكن بعد إتقان المهارة، قررت تقديم الخدمة للآخرين. اليوم، لديها وكالة صغيرة تضم 3 موظفين وتخدم أكثر من 50 عميل!
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg text-sm font-semibold">3 موظفين</span>
+                            <span class="px-4 py-2 bg-orange-100 text-orange-700 rounded-lg text-sm font-semibold">50+ عميل</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-dark-text text-white">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-extrabold mb-6">كن القصة التالية! 🚀</h2>
+            <p class="text-base lg:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto">
+                انضم لأكثر من 1200 متعلم حققوا نتائج حقيقية. ابدأ رحلتك اليوم!
+            </p>
+            <a href="course-ai-websites.html#cta-section" class="inline-block px-10 py-4 bg-primary-orange text-white text-lg font-bold rounded-xl hover:bg-primary-hover transition shadow-2xl transform hover:scale-105">
+                ✅ سجّل الآن وابدأ التعلم
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 lg:py-12 bg-dark-text text-white border-t border-gray-800">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-right">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="أكاديمية وجهة" class="h-12 w-auto mx-auto md:mx-0 mb-3" style="filter: brightness(0) invert(1);">
+                    <p class="text-gray-400 text-sm">أكاديمية وجهة - مهارات المستقبل</p>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wijha Academy</p>
+                    <p class="text-gray-500 text-xs mt-1">جميع الحقوق محفوظة</p>
+                </div>
+                
+                <div class="flex gap-4">
+                    <a href="index.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الرئيسية</a>
+                    <a href="courses.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الدورات</a>
+                    <a href="testimonials.html" class="text-gray-400 hover:text-primary-orange transition text-sm">آراء الطلاب</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#chatWidget").load("chat-widget.html");
+        });
+    </script>
+    <div id="chatWidget"></div>
+
+</body>
+</html>

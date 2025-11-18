@@ -85,25 +85,53 @@
 <body class="text-gray-800 antialiased">
 
     <!-- Header / NavBar -->
-    <header class="bg-white shadow-sm relative overflow-hidden h-20 lg:h-24">
-        <!-- Animated Background Emojis -->
-        <span class="wiggling-emoji top-1/4 left-[10%]">🚀</span>
-        <span class="wiggling-emoji bottom-1/4 right-[5%]">💡</span>
-        <span class="wiggling-emoji top-1/2 left-[40%]">💻</span>
-        <span class="wiggling-emoji top-1/3 right-[30%]">⚡️</span>
-        <span class="wiggling-emoji bottom-[10%] left-[20%]">✅</span>
-        <span class="wiggling-emoji top-[5%] right-[20%]">⭐</span>
-        <span class="wiggling-emoji bottom-[5%] left-[50%]">🔥</span>
-        <span class="wiggling-emoji top-[60%] right-[10%]">📈</span>
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center hover:opacity-80 transition">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="أكاديمية وجهة" class="h-14 w-auto">
+                </a>
+                
+                <!-- Menu -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">الرئيسية</a>
+                    <a href="testimonials.html" class="text-gray-700 hover:text-primary-orange font-semibold transition">آراء الطلاب</a>
+                    <a href="course-ai-websites.html" class="px-6 py-3 bg-primary-orange text-white rounded-lg hover:bg-primary-hover font-bold transition">
+                        سجّل الآن
+                    </a>
+                </nav>
 
-        <!-- Container -->
-        <div class="container mx-auto px-4 h-full max-w-7xl relative z-10"> 
-            <!-- Logo -->
-            <a href="index.html" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="Wijha (وجهة) Academy Logo" class="h-16 lg:h-20 w-auto">
-            </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-3">
+                <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">الرئيسية</a>
+                <a href="testimonials.html" class="block px-4 py-2 text-gray-700 hover:bg-accent-light hover:text-primary-orange rounded-lg transition font-semibold">آراء الطلاب</a>
+                <a href="course-ai-websites.html" class="block px-4 py-2 bg-primary-orange text-white rounded-lg hover:bg-primary-hover transition font-bold text-center">سجّل الآن</a>
+            </div>
         </div>
     </header>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
 
     <!-- Hero Section -->
     <section class="pt-20 pb-16 bg-gradient-to-br from-primary-purple to-primary-orange text-white">
@@ -135,38 +163,40 @@
                                 <h2 class="text-[1.5rem] md:text-[1.75rem] lg:text-[2rem] font-extrabold text-dark-text mb-6 leading-tight">
                                     بناء موقع احترافي بالذكاء الاصطناعي – بدون أي كود
                                 </h2>
-                                <p class="text-base text-gray-700 mb-6 leading-relaxed">
-                                    أتقن المنهجية التي يستخدمها المستقلون لإطلاق مواقع عالية الجودة (مع نماذج اتصال ودفع) في فترة ما بعد الظهيرة، بميزانية تناسب رواد الأعمال.
-                                </p>
                                 
-                                <div class="grid grid-cols-2 gap-4 mb-8">
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-primary-purple">✓</span>
-                                        <span class="text-sm">هندسة الأوامر</span>
+                                <!-- Course Info Cards -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                                    <!-- Price Card -->
+                                    <div class="bg-gradient-to-br from-primary-purple to-primary-purple/80 rounded-2xl p-6 text-white shadow-xl hover:shadow-2xl transition-shadow">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <span class="text-2xl">💰</span>
+                                            <span class="text-sm font-semibold opacity-90">السعر الخاص</span>
+                                        </div>
+                                        <div class="flex items-baseline gap-2">
+                                            <span class="text-4xl font-black">120</span>
+                                            <span class="text-xl font-bold">د.ت</span>
+                                        </div>
+                                        <p class="text-xs mt-2 opacity-80">عرض لفترة محدودة فقط!</p>
                                     </div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-primary-purple">✓</span>
-                                        <span class="text-sm">Tailwind CSS</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-primary-purple">✓</span>
-                                        <span class="text-sm">نشر مباشر</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-primary-purple">✓</span>
-                                        <span class="text-sm">نماذج دفع</span>
+                                    
+                                    <!-- Duration Card -->
+                                    <div class="bg-gradient-to-br from-primary-orange to-primary-orange/80 rounded-2xl p-6 text-white shadow-xl hover:shadow-2xl transition-shadow">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <span class="text-2xl">⚡</span>
+                                            <span class="text-sm font-semibold opacity-90">مدة الدورة</span>
+                                        </div>
+                                        <div class="flex items-baseline gap-2">
+                                            <span class="text-4xl font-black">90</span>
+                                            <span class="text-xl font-bold">دقيقة</span>
+                                        </div>
+                                        <p class="text-xs mt-2 opacity-80">نتائج سريعة وفعالة</p>
                                     </div>
                                 </div>
 
-                                <div class="flex flex-col sm:flex-row gap-4 items-start">
-                                    <a href="course-ai-websites.html" class="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-primary-orange rounded-xl hover:bg-primary-hover transition shadow-lg transform hover:scale-105 text-center">
-                                        🚀 ابدأ الآن - 120 د.ت
-                                    </a>
-                                    <div class="flex flex-col">
-                                        <span class="text-[1.5rem] md:text-[1.75rem] font-bold text-primary-purple">120 د.ت</span>
-                                        <span class="text-sm text-gray-500">مدة الدورة: 90 دقيقة</span>
-                                    </div>
-                                </div>
+                                <!-- CTA Button -->
+                                <a href="course-ai-websites.html" class="inline-block w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-primary-purple to-primary-orange rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-center">
+                                    🚀 اكتشف المزيد واشترك الآن
+                                </a>
                             </div>
 
                             <div class="relative">
@@ -302,71 +332,114 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-24 bg-dark-text">
-        <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h2 class="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-extrabold text-white mb-6">هل لديك أسئلة؟</h2>
-            <p class="text-base lg:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                تواصل معنا للحصول على المزيد من المعلومات حول دوراتنا وعروضنا الخاصة
-            </p>
+    <!-- Contact Section -->
+    <section class="py-24 bg-gradient-to-br from-primary-purple to-primary-orange">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-extrabold text-white mb-4">لديك أسئلة؟ تواصل معنا 💬</h2>
+                <p class="text-base lg:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+                    فريقنا جاهز للإجابة على جميع استفساراتك ومساعدتك في اختيار الدورة المناسبة
+                </p>
+            </div>
             
-            <a href="index.html#about" class="inline-block px-12 py-5 text-base lg:text-xl font-bold text-white bg-primary-orange rounded-xl hover:bg-primary-hover transition duration-300 shadow-2xl shadow-primary-orange/50 transform hover:scale-105 active:scale-95">
-                📞 تواصل معنا
-            </a>
+            <div class="bg-white rounded-3xl p-8 lg:p-12 card-shadow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Phone -->
+                    <a href="tel:+21612345678" class="flex items-center gap-4 p-6 bg-gradient-to-br from-primary-orange/10 to-primary-orange/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📞</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">اتصل بنا</h3>
+                            <p class="text-primary-orange font-semibold group-hover:underline">+216 12 345 678</p>
+                        </div>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/21612345678" target="_blank" class="flex items-center gap-4 p-6 bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">💬</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">واتساب</h3>
+                            <p class="text-green-600 font-semibold group-hover:underline">+216 12 345 678</p>
+                        </div>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:info@wijha-academy.com" class="flex items-center gap-4 p-6 bg-gradient-to-br from-primary-purple/10 to-primary-purple/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📧</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">البريد الإلكتروني</h3>
+                            <p class="text-primary-purple font-semibold group-hover:underline">info@wijha-academy.com</p>
+                        </div>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/wijha.academy" target="_blank" class="flex items-center gap-4 p-6 bg-gradient-to-br from-pink-500/10 to-pink-500/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📸</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">إنستغرام</h3>
+                            <p class="text-pink-600 font-semibold group-hover:underline">@wijha.academy</p>
+                        </div>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="https://facebook.com/wijha.academy" target="_blank" class="flex items-center gap-4 p-6 bg-gradient-to-br from-blue-600/10 to-blue-600/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">📘</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">فيسبوك</h3>
+                            <p class="text-blue-600 font-semibold group-hover:underline">Wijha Academy</p>
+                        </div>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/company/wijha-academy" target="_blank" class="flex items-center gap-4 p-6 bg-gradient-to-br from-blue-700/10 to-blue-700/5 rounded-2xl hover:shadow-lg transition group">
+                        <div class="text-5xl">💼</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-dark-text mb-1">لينكد إن</h3>
+                            <p class="text-blue-700 font-semibold group-hover:underline">Wijha Academy</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="text-center mt-10">
+                    <a href="course-ai-websites.html#cta-section" class="inline-block px-10 py-4 bg-gradient-to-r from-primary-purple to-primary-orange text-white text-lg font-bold rounded-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                        ✅ سجّل الآن وابدأ التعلم
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-dark-text text-white border-t border-gray-700">
+    <footer class="py-8 lg:py-12 bg-dark-text text-white">
         <div class="container mx-auto px-4 max-w-7xl">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
-                <!-- About -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4 text-primary-orange">عن وجهة</h3>
-                    <p class="text-sm text-gray-400">نمكّن الأفراد بمهارات المستقبل من خلال تعليم عملي وتطبيقي.</p>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-right">
+                    <img src="https://i.ibb.co/ccdRN4V4/lg.png" alt="أكاديمية وجهة" class="h-12 w-auto mx-auto md:mx-0 mb-3" style="filter: brightness(0) invert(1);">
+                    <p class="text-gray-400 text-sm">أكاديمية وجهة - مهارات المستقبل</p>
                 </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4 text-primary-orange">روابط سريعة</h3>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="index.html" class="hover:text-white transition">الرئيسية</a></li>
-                        <li><a href="index.html#about" class="hover:text-white transition">عنّا</a></li>
-                        <li><a href="courses.html" class="hover:text-white transition">جميع الدورات</a></li>
-                        <li><a href="#" class="hover:text-white transition">تواصل معنا</a></li>
-                    </ul>
+                
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wijha Academy</p>
+                    <p class="text-gray-500 text-xs mt-1">جميع الحقوق محفوظة</p>
                 </div>
-
-                <!-- Resources -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4 text-primary-orange">موارد</h3>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">دروس مجانية</a></li>
-                        <li><a href="#" class="hover:text-white transition">المجتمع</a></li>
-                        <li><a href="#" class="hover:text-white transition">قصص النجاح</a></li>
-                        <li><a href="#" class="hover:text-white transition">الأسئلة الشائعة</a></li>
-                    </ul>
+                
+                <div class="flex gap-4">
+                    <a href="index.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الرئيسية</a>
+                    <a href="courses.html" class="text-gray-400 hover:text-primary-orange transition text-sm">الدورات</a>
+                    <a href="testimonials.html" class="text-gray-400 hover:text-primary-orange transition text-sm">آراء الطلاب</a>
                 </div>
-
-                <!-- Contact -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4 text-primary-orange">ابقَ على تواصل</h3>
-                    <p class="text-sm text-gray-400 mb-4">تابعنا للحصول على التحديثات والنصائح</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-primary-orange transition text-xl">📘</a>
-                        <a href="#" class="text-gray-400 hover:text-primary-orange transition text-xl">📸</a>
-                        <a href="#" class="text-gray-400 hover:text-primary-orange transition text-xl">🐦</a>
-                        <a href="#" class="text-gray-400 hover:text-primary-orange transition text-xl">💼</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
-                <p>&copy; 2025 أكاديمية وجهة. جميع الحقوق محفوظة.</p>
-                <p class="mt-2">مصمّمة لتمكين روّاد الأعمال والمستقلين والمتعلمين مدى الحياة في جميع أنحاء العالم.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Chat Widget -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#chatWidget").load("chat-widget.html");
+        });
+    </script>
+    <div id="chatWidget"></div>
 
 </body>
 </html>
